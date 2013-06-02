@@ -26,7 +26,7 @@
         and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
     <script>
-    scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};
+document.ontouchmove = function(e) {e.preventDefault()};
     </script>
 </head>
 <body>
@@ -34,7 +34,7 @@
 <div id="home" data-url="home" data-role="page" data-theme="a">
 <div data-role="header" data-theme="b">
 <h1>Time-airy</h1>
-<a href="#Timetable" class="ui-btn-right" id="test">Timetable</a>
+<a href="#Timetable" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Timetable</a>
 </div>
 
 <div data-role="content">
