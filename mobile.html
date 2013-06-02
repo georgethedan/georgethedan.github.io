@@ -25,13 +25,16 @@
     media="(device-width: 320px) and (device-height: 568px)
         and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
+    <script>
+        var node = document.querySelector('#test'); node.addEventListener('touchstart', function(e){e.preventDefault();alert(1)}, false);
+    </script>
 </head>
 <body>
 
 <div id="home" data-url="home" data-role="page" data-theme="a">
 <div data-role="header" data-theme="b">
 <h1>Time-airy</h1>
-<a href="#Timetable" class="ui-btn-right">Timetable</a>
+<a href="#Timetable" class="ui-btn-right" id="test">Timetable</a>
 </div>
 
 <div data-role="content">
