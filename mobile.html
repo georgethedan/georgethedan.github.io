@@ -26,9 +26,7 @@
         and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
     <script>
-    $('body').on('touchmove', function (e) {
-         if (!$('.scrollable').has($(e.target)).length) e.preventDefault();
- });
+    scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};
     </script>
 </head>
 <body>
