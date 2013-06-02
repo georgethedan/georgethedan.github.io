@@ -26,7 +26,9 @@
         and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
     <script>
-        var node = document.querySelector('#test'); node.addEventListener('touchstart', function(e){e.preventDefault();alert(1)}, false);
+    $('body').on('touchmove', function (e) {
+         if (!$('.scrollable').has($(e.target)).length) e.preventDefault();
+ });
     </script>
 </head>
 <body>
