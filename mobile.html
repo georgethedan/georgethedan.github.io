@@ -62,7 +62,15 @@ Hey Everyone,<br><br>I hope you enjoy this epic app. It is currently in alpha so
 </div>
 
 <div id="Timetable" data-url="Timetable" data-role="page" data-theme="a">
-    <div data-role="panel" id="left-panel" data-theme="b">
+<div data-role="header" data-position="fixed">
+<h1>Timetable</h1>
+<a href="#home" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+</div>
+
+<div data-role="content">
+
+</div>
+        <div data-role="panel" id="left-panel" data-theme="b">
         <p>Left reveal panel.</p>
         <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
     </div><!-- /panel -->
@@ -71,15 +79,7 @@ Hey Everyone,<br><br>I hope you enjoy this epic app. It is currently in alpha so
         <a href="#" data-rel="close" data-role="button" data-mini="true" data-inline="true" data-icon="delete" data-iconpos="right">Close</a>
     </div><!-- /panel -->
 
-
-<div data-role="header" data-position="fixed">
-<h1>Timetable</h1>
-<a href="#home" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
-
-<div data-role="content">
-
-</div></div>
 
 </body>
 </html>
