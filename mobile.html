@@ -27,6 +27,20 @@
     rel="apple-touch-startup-image">
     <script>
 document.ontouchmove = function(e) {e.preventDefault()};
+$( document ).on( "pageinit", "#Timetable", function() {
+    $( document ).on( "swipeleft swiperight", "#Timetable", function( e ) {
+        // We check if there is no open panel on the page because otherwise
+        // a swipe to close the left panel would also open the right panel (and v.v.).
+        // We do this by checking the data that the framework stores on the page element (panel: open).
+        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
+            if ( e.type === "swipeleft"  ) {
+                $( "#right-panel" ).panel( "open" );
+            } else if ( e.type === "swiperight" ) {
+                $( "#left-panel" ).panel( "open" );
+            }
+        }
+    });
+});
     </script>
 </head>
 <body>
@@ -66,16 +80,6 @@ Hey Everyone,<br><br>I hope you enjoy this epic app. It is currently in alpha so
 <div data-role="content">
 
 </div></div>
-<script type='text/javascript'>
-$(document).on('pageinit',function(){
-    $("#Timetabke").on("swiperight",function(){
-		$("#left-panel").panel( "open");
-	});
-	$("#content").on("swipeleft",function(){
-		$("#right-panel").panel( "open");
-	});
-});
-</script>
 
 </body>
 </html>
