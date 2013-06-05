@@ -27,8 +27,8 @@
     rel="apple-touch-startup-image">
     <script>
 document.ontouchmove = function(e) {e.preventDefault()};
-$( document ).on( "pageinit", "#demo-page", function() {
-    $( document ).on( "swipeleft swiperight", "#demo-page", function( e ) {
+$( document ).on( "pageinit", "#timetable", function() {
+    $( document ).on( "swipeleft swiperight", "#timetable", function( e ) {
         // We check if there is no open panel on the page because otherwise
         // a swipe to close the left panel would also open the right panel (and v.v.).
         // We do this by checking the data that the framework stores on the page element (panel: open).
@@ -48,7 +48,7 @@ $( document ).on( "pageinit", "#demo-page", function() {
 <div id="home" data-url="home" data-role="page" data-theme="a">
 <div data-role="header" data-theme="b">
 <h1>Time-airy</h1>
-<a href="#demo-page" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Timetable</a>
+<a href="#timetable" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Timetable</a>
 </div>
 
 <div data-role="content">
@@ -61,11 +61,9 @@ Hey Everyone,<br><br>I hope you enjoy this epic app. It is currently in alpha so
 </div>
 </div>
 
-<div data-role="page" id="demo-page" data-theme="d" data-url="demo-page">
+<div data-role="page" id="timetable" data-theme="b" data-url="timetable">
     <div data-role="header" data-theme="b">
-        <h1>Swipe left or right</h1>
-        <a href="#left-panel" data-theme="d" data-icon="arrow-r" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open left panel</a>
-        <a href="#right-panel" data-theme="d" data-icon="arrow-l" data-iconpos="notext" data-shadow="false" data-iconshadow="false" class="ui-icon-nodisc">Open right panel</a>
+        <h1>Timetable</h1>
     </div><!-- /header -->
     <div data-role="content">
         <dl>
