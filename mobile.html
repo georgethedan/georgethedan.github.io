@@ -102,10 +102,10 @@ $(document).delegate('#geographyconfirm', 'pageinit', function(){
 </head>
 <body>
 
-<div id="home" data-url="home" data-role="page" data-theme="a">
+<div data-role="page" data-theme="a">
 <div data-role="header" data-theme="b">
 <h1>Time-airy</h1>
-<a href="#timetable" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Timetable</a>
+<a href="timetable.html" class="ui-btn-right" id="test" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Timetable</a>
 </div>
 
 <div data-role="content">
@@ -118,25 +118,5 @@ Hey Everyone,<br><br>I hope you enjoy this epic app. It is currently in alpha so
 </div>
 </div>
 
-<div data-role="page" id="timetable" data-theme="b" data-url="timetable">
-    <div data-role="header" data-theme="b">
-        <h1>Timetable</h1>
-    </div><!-- /header -->
-    <div data-role="content">
-        <dl>
-            <dt>Swipe <span>verb</span></dt>
-            <dd><b>1.</b> to strike or move with a sweeping motion</dd>
-        </dl>
-        <a data-rel="back" class="back-btn" data-role="button" data-mini="true" data-inline="true" data-icon="back" data-iconpos="right">Back to demo intro</a>
-    </div><!-- /content -->
-    <div data-role="panel" id="left-panel" data-theme="b">
-        <ul data-role="listview" data-theme="d" data-icon="false" data-inset="false">
-            <li data-role="list-divider">Subjects:</li>
-            <li><a href="https://georgethedan.github.io/geography" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Geography</a></li>
-            <li><a href="https://georgethedan.github.io/maths">Maths</a></li>
-            <li><a href="https://georgethedan.github.io/rave">RaVE</a></li>
-            <li><a href="https://georgethedan.github.io/dat">D&T</a></li>
-        </ul>
-</div>
 </body>
 </html>
