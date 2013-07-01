@@ -7,7 +7,7 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
-<title>Geography</title>
+<title>Science</title>
 <script>
 var ntd = {};
 /** Read the new task and add it to the list */
@@ -40,7 +40,7 @@ ntd.refresh_list = function() {
         for (var i=0;i<ntd.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#geographyconfirm">' + ntd.list[i] + '</a></li>'
+                    + '" href="#scienceconfirm">' + ntd.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -51,7 +51,7 @@ ntd.refresh_list = function() {
     localStorage.ntd_list = JSON.stringify(ntd.list || []);
 };
 // Initialize the index page
-$(document).delegate('#geography','pageinit', function() {
+$(document).delegate('#science','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
 if (!localStorage.ntd_list) {
@@ -64,21 +64,21 @@ ntd.list = JSON.parse(localStorage.ntd_list);
         ntd.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#geography').bind('pagebeforeshow', ntd.refresh_list);
+    $('#science').bind('pagebeforeshow', ntd.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
-$(document).delegate('#geographyconfirm', 'pageinit', function(){
-    $('.remove_task_geography').bind('vclick', ntd.remove);
+$(document).delegate('#scienceconfirm', 'pageinit', function(){
+    $('.remove_task_science').bind('vclick', ntd.remove);
 });
 
 </script>
 </head>
 <body>
 
-<div id="geography" data-url="geography" data-role="page">
+<div id="science" data-url="science" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>Geography</h1>
+<h1>Science</h1>
 <a href="http://georgethedan.github.io/mobile.html" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
@@ -86,8 +86,8 @@ $(document).delegate('#geographyconfirm', 'pageinit', function(){
 
 <ul id="task_list" data-role="listview">
 <li data-role="list-divider">To do:</li>
-<li><a href="#geographyconfirm">Homework 1</a></li>
-<li><a href="#geographyconfirm">Assignment 1</a></li>
+<li><a href="#scienceconfirm">Homework 1</a></li>
+<li><a href="#scienceconfirm">Assignment 1</a></li>
 <li data-role="list-divider">Add:</li>
 </ul>
 
@@ -103,16 +103,16 @@ $(document).delegate('#geographyconfirm', 'pageinit', function(){
 
 </div></div>
 
-<div id="geographyconfirm" data-url="geographyconfirm" data-role="page">
+<div id="scienceconfirm" data-url="scienceconfirm" data-role="page">
 <div data-role="header">
 <h1>Done?</h1>
 </div>
 
 <div data-role="content">
 &nbsp;
-<a id="remove_task_geography" class="remove_task_geography" href="#geography" data-role="button" data-icon="check">Completed</a>
+<a id="remove_task_science" class="remove_task_science" href="#science" data-role="button" data-icon="check">Completed</a>
 &nbsp;
-<a href="#geography" data-role="button" data-icon="delete">Not Completed</a>
+<a href="#science" data-role="button" data-icon="delete">Not Completed</a>
 
 </div></div>
 </div>
