@@ -23,6 +23,23 @@ $( document ).on( "pageinit", "#timetable", function() {
     });
 });
 </script>
+<style type="text/css">
+ table.mystyle
+{
+    border-width: 0 0 1px 1px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-style: solid;
+}
+
+.mystyle td, .mystyle th
+{
+    margin: 0;
+    padding: 4px;
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+}
+</style>
 </head>
 <body>
 <div data-role="page" data-theme="b" id="timetable">
@@ -30,16 +47,23 @@ $( document ).on( "pageinit", "#timetable", function() {
         <h1>Timetable</h1>
     </div><!-- /header -->
     <div data-role="content">
-        <<table border="1">
-<tr>
-<td>row 1, cell 1</td>
-<td>row 1, cell 2</td>
-</tr>
-<tr>
-<td>row 2, cell 1</td>
-<td>row 2, cell 2</td>
-</tr>
-</table>
+<table class="mystyle">
+  <tr>
+   <th>   </th>
+   <th>Mon</th>
+   <th>Tue</th>
+   <th>Wed</th>
+   <th>Thu</th>
+   <th>Fri</th>
+  </tr>
+  <tr>
+    <td>Cell 1,1</td><td>Cell 1,2</td><td></td>
+  </tr>
+  <tr>
+    <td>Cell 2,1</td><td>Cell 2,2</td><td>Cell 2,3</td>
+  </tr>
+ </table>
+</body>
         <a href="https://georgethedan.github.io/mobile.html" data-role="button" data-mini="true" data-inline="true" data-icon="back" data-iconpos="right">Back to demo intro</a>
     </div><!-- /content -->
     <div data-role="panel" id="left-panel" data-theme="b">
