@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Timetable</title>
+<title>Home</title>
 <link rel="stylesheet" href="stylesheets/style.css">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -44,9 +44,16 @@ $( document ).on( "pageinit", "#timetable", function() {
 <div data-role="page" data-theme="b" id="timetable">
     <div data-role="header" data-theme="b">
         <h1>Timetable</h1>
+        <a href="http://georgethedan.github.io/about.html" data-icon="info" class="ui-btn-right">About</a>
+        <div data-role="navbar">
+        <ul>
+            <li><a class="ui-btn-active">Week A</a></li>
+            <li><a href="http://georgthedan.github.io/weekb">Week B</a></li>
+        </ul>
+    </div>
     </div><!-- /header -->
     <div data-role="content">
-<table class="mystyle" width='100%'>
+<table class="mystyle" width='100%' height="100%">
   <tr>
    <th>   </th>
    <th>Mon</th>
@@ -96,8 +103,6 @@ $( document ).on( "pageinit", "#timetable", function() {
     <td>PE</td>
   </tr>
  </table>
-</body>
-        <a href="http://georgethedan.github.io/mobile.html" data-role="button" data-mini="true" data-inline="true" data-icon="back" data-iconpos="right">Back to demo intro</a>
     </div><!-- /content -->
     <div data-role="panel" id="left-panel" data-theme="b">
         <ul data-role="listview" data-theme="d" data-icon="false" data-inset="false">
@@ -112,6 +117,9 @@ $( document ).on( "pageinit", "#timetable", function() {
             <li><a onClick='location.replace("http://georgethedan.github.io/french.html")'>French</a></li>
             <li><a onClick='location.replace("http://georgethedan.github.io/english.html")'>English</a></li>
         </ul>
+</div>
+<div data-role="footer" data-position="fixed">
+<h1 data-icon="arrow-r">Slide for subjects</h1>
 </div>
 </body>
 </html>
