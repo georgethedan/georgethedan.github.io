@@ -24,22 +24,6 @@
     media="(device-width: 320px) and (device-height: 568px)
         and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
-<script>
-$( document ).on( "pageinit", "#timetable", function() {
-    $( document ).on( "swipeleft swiperight", "#timetable", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-                $( "#right-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
-        }
-    });
-});
-</script>
 <style type="text/css">
  table.mystyle
 {
@@ -71,17 +55,17 @@ $( document ).on( "pageinit", "#timetable", function() {
     </div>
     </div><!-- /header -->
     <div data-role="content">
-<table class="mystyle" width='100%' height="100%">
+<table class="mystyle" width='100%' onClick="location.replace('http://georgethedan.github.io/subjects')">
   <tr>
    <th>   </th>
-   <th>Mon</th>
-   <th>Tue</th>
-   <th>Wed</th>
-   <th>Thu</th>
-   <th>Fri</th>
+   <th bgcolor="orange">Mon</th>
+   <th bgcolor="orange">Tue</th>
+   <th bgcolor="orange">Wed</th>
+   <th bgcolor="orange">Thu</th>
+   <th bgcolor="orange">Fri</th>
   </tr>
   <tr>
-    <td>P1</td>
+    <td bgcolor="yellow">P1</td>
     <td>DT</td>
     <td>DT</td>
     <td>DT</td>
@@ -89,7 +73,7 @@ $( document ).on( "pageinit", "#timetable", function() {
     <td>PE</td>
   </tr>
     <tr>
-    <td>P2</td>
+    <td bgcolor="yellow">P2</td>
     <td>DT</td>
     <td>DT</td>
     <td>DT</td>
@@ -97,7 +81,7 @@ $( document ).on( "pageinit", "#timetable", function() {
     <td>PE</td>
   </tr>
     <tr>
-    <td>P3</td>
+    <td bgcolor="yellow">P3</td>
     <td>DT</td>
     <td>DT</td>
     <td>DT</td>
@@ -105,7 +89,7 @@ $( document ).on( "pageinit", "#timetable", function() {
     <td>PE</td>
   </tr>
     <tr>
-    <td>P4</td>
+    <td bgcolor="yellow">P4</td>
     <td>DT</td>
     <td>DT</td>
     <td>DT</td>
@@ -113,7 +97,7 @@ $( document ).on( "pageinit", "#timetable", function() {
     <td>PE</td>
   </tr>
     <tr>
-    <td>P5</td>
+    <td bgcolor="yellow">P5</td>
     <td>DT</td>
     <td>DT</td>
     <td>DT</td>
@@ -122,22 +106,8 @@ $( document ).on( "pageinit", "#timetable", function() {
   </tr>
  </table>
     </div><!-- /content -->
-    <div data-role="panel" id="left-panel" data-theme="b">
-        <ul data-role="listview" data-theme="d" data-icon="false" data-inset="false">
-            <li data-role="list-divider">Subjects:</li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/geography.html")'>Geography</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/maths.html")'>Maths</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/rave.html")'>RaVE</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/drama.html")'>Drama</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/cc.html")'>Classic Civ's</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/science.html")'>Science</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/pdhpe.html")'>PDHPE</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/french.html")'>French</a></li>
-            <li><a onClick='location.replace("http://georgethedan.github.io/english.html")'>English</a></li>
-        </ul>
-</div>
 <div data-role="footer" data-position="fixed">
-<h1>Slide left for subjects</h1>
+<h1>Tap on table for subjects</h1>
 </div>
 </body>
 </html>
