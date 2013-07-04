@@ -24,22 +24,6 @@
     media="(device-width: 320px) and (device-height: 568px)
         and (-webkit-device-pixel-ratio: 2)"
     rel="apple-touch-startup-image">
-<script>
-$( document ).on( "pageinit", "#timetable", function() {
-    $( document ).on( "swipeleft swiperight", "#timetable", function( e ) {
-        // We check if there is no open panel on the page because otherwise
-        // a swipe to close the left panel would also open the right panel (and v.v.).
-        // We do this by checking the data that the framework stores on the page element (panel: open).
-        if ( $.mobile.activePage.jqmData( "panel" ) !== "open" ) {
-            if ( e.type === "swipeleft"  ) {
-                $( "#right-panel" ).panel( "open" );
-            } else if ( e.type === "swiperight" ) {
-                $( "#left-panel" ).panel( "open" );
-            }
-        }
-    });
-});
-</script>
 <style type="text/css">
  table.mystyle
 {
