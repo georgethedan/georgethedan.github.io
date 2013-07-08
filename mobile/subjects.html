@@ -19,20 +19,20 @@ document.ontouchmove = function(e) {e.preventDefault()};
 <div data-role="page" data-theme="a">
 <div data-role="header" data-theme="b">
 <h1>Subjects</h1>
-<a class="ui-btn-right" id="test" onClick="location.replace('http://georgethedan.github.io/weeka.html')">Timetable</a>
+<a class="ui-btn-right" id="test" onClick="location.replace('http://georgethedan.github.io/mobile/weeka.html')">Timetable</a>
 </div>
 
-<div data-role="content">
+<div data-role="content" onClick=("document.ontouchmove = function(e) {e.stopPropagation()};")>
 <ul data-role="listview" data-inset="true">
-    <li><a onClick="location.replace('http://georgethedan.github.io/cc.html')">Classic Civ's</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/drama.html')" data-ajax="false">Drama</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/english.html')">English</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/french.html')">French</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/geography.html')">Geography</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/maths.html')">Maths</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/pdhpe.html')">PDHPE</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/rave.html')">RaVE</a></li>
-    <li><a onClick="location.replace('http://georgethedan.github.io/science.html')">Science</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/cc.html')">Classic Civ's</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/drama.html')" data-ajax="false">Drama</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/english.html')">English</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/french.html')">French</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/geography.html')">Geography</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/maths.html')">Maths</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/pdhpe.html')">PDHPE</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/rave.html')">RaVE</a></li>
+    <li><a onClick="location.replace('http://georgethedan.github.io/mobile/science.html')">Science</a></li>
 </ul>
 
 </div>
