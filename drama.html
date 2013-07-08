@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Drama</title>
 <script>
-var ntd = {};
+var ntd2 = {};
 /** Read the new task and add it to the list */
-ntd.add = function(event) {
+ntd2.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd.list[ntd.list.length] = task;
-        ntd.refresh_list();
+        ntd2.list[ntd2.list.length] = task;
+        ntd2.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd.remove = function() {
+ntd2.remove = function() {
     // Remove from array and refresh list
-    ntd.list.splice(ntd.selected,1);
-    ntd.refresh_list();
+    ntd2.list.splice(ntd2.selected,1);
+    ntd2.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd.refresh_list = function() {
+ntd2.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd.list.length) {
+    if (ntd2.list.length) {
         // Add the header
         $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd.list.length;i++){
+        for (var i=0;i<ntd2.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#dramaconfirm">' + ntd.list[i] + '</a></li>'
+                    + '" href="#dramaconfirm">' + ntd2.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd_list = JSON.stringify(ntd.list || []);
+    localStorage.ntd2_list = JSON.stringify(ntd2.list || []);
 };
 // Initialize the index page
 $(document).delegate('#drama','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd_list) {
-    localStorage.ntd_list = "[]";
+if (!localStorage.ntd2_list) {
+    localStorage.ntd2_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd.list = JSON.parse(localStorage.ntd_list);
-    $('#add').bind('vclick', ntd.add);
+ntd2.list = JSON.parse(localStorage.ntd2_list);
+    $('#add').bind('vclick', ntd2.add);
     $('li a').live('vclick', function() {
-        ntd.selected = $(this).data('task');
+        ntd2.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#drama').bind('pagebeforeshow', ntd.refresh_list);
+    $('#drama').bind('pagebeforeshow', ntd2.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#dramaconfirm', 'pageinit', function(){
-    $('.remove_task_drama').bind('vclick', ntd.remove);
+    $('.remove_task_drama').bind('vclick', ntd2.remove);
 });
 
 </script>
