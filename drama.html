@@ -64,7 +64,7 @@ ntd.list = JSON.parse(localStorage.ntd_list);
         ntd.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#drama).bind('pagebeforeshow', ntd.refresh_list);
+    $('#drama').bind('pagebeforeshow', ntd.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
@@ -115,10 +115,6 @@ $(document).delegate('#dramaconfirm', 'pageinit', function(){
 <a href="#drama" data-role="button" data-icon="delete">Not Completed</a>
 
 </div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>
