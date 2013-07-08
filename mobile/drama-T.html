@@ -7,40 +7,40 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
-<title>Maths</title>
+<title>Drama</title>
 <script>
-var ntd6 = {};
+var ntd2 = {};
 /** Read the new task and add it to the list */
-ntd6.add = function(event) {
+ntd2.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd6.list[ntd6.list.length] = task;
-        ntd6.refresh_list();
+        ntd2.list[ntd2.list.length] = task;
+        ntd2.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd6.remove = function() {
+ntd2.remove = function() {
     // Remove from array and refresh list
-    ntd6.list.splice(ntd6.selected,1);
-    ntd6.refresh_list();
+    ntd2.list.splice(ntd2.selected,1);
+    ntd2.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd6.refresh_list = function() {
+ntd2.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd6.list.length) {
+    if (ntd2.list.length) {
         // Add the header
         $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd6.list.length;i++){
+        for (var i=0;i<ntd2.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#mathsconfirm">' + ntd6.list[i] + '</a></li>'
+                    + '" href="#dramaconfirm">' + ntd2.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,46 +48,46 @@ ntd6.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd6_list = JSON.stringify(ntd6.list || []);
+    localStorage.ntd2_list = JSON.stringify(ntd2.list || []);
 };
 // Initialize the index page
-$(document).delegate('#maths','pageinit', function() {
+$(document).delegate('#drama','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd6_list) {
-    localStorage.ntd6_list = "[]";
+if (!localStorage.ntd2_list) {
+    localStorage.ntd2_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd6.list = JSON.parse(localStorage.ntd6_list);
-    $('#add').bind('vclick', ntd6.add);
+ntd2.list = JSON.parse(localStorage.ntd2_list);
+    $('#add').bind('vclick', ntd2.add);
     $('li a').live('vclick', function() {
-        ntd6.selected = $(this).data('task');
+        ntd2.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#maths').bind('pagebeforeshow', ntd6.refresh_list);
+    $('#drama').bind('pagebeforeshow', ntd2.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
-$(document).delegate('#mathsconfirm', 'pageinit', function(){
-    $('.remove_task_maths').bind('vclick', ntd6.remove);
+$(document).delegate('#dramaconfirm', 'pageinit', function(){
+    $('.remove_task_drama').bind('vclick', ntd2.remove);
 });
 
 </script>
 </head>
 <body>
 
-<div id="maths" data-url="maths" data-role="page">
+<div id="drama" data-url="drama" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>Maths</h1>
-<a href="http://georgethedan.github.io/mobile/ipadweeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<h1>Drama</h1>
+<a href="http://georgethedan.github.io/mobile/weeka-T.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
 
 <ul id="task_list" data-role="listview">
 <li data-role="list-divider">To do:</li>
-<li><a href="#mathsconfirm">Homework 1</a></li>
-<li><a href="#mathsconfirm">Assignment 1</a></li>
+<li><a href="#dramaconfirm">Homework 1</a></li>
+<li><a href="#dramaconfirm">Assignment 1</a></li>
 <li data-role="list-divider">Add:</li>
 </ul>
 
@@ -103,22 +103,18 @@ $(document).delegate('#mathsconfirm', 'pageinit', function(){
 
 </div></div>
 
-<div id="mathsconfirm" data-url="mathsconfirm" data-role="page">
+<div id="dramaconfirm" data-url="dramaconfirm" data-role="page">
 <div data-role="header">
 <h1>Done?</h1>
 </div>
 
 <div data-role="content">
 &nbsp;
-<a id="remove_task_maths" class="remove_task_maths" href="#maths" data-role="button" data-icon="check">Completed</a>
+<a id="remove_task_drama" class="remove_task_drama" href="#drama" data-role="button" data-icon="check">Completed</a>
 &nbsp;
-<a href="#maths" data-role="button" data-icon="delete">Not Completed</a>
+<a href="#drama" data-role="button" data-icon="delete">Not Completed</a>
 
 </div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>
