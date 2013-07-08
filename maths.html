@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Maths</title>
 <script>
-var ntd = {};
+var ntd6 = {};
 /** Read the new task and add it to the list */
-ntd.add = function(event) {
+ntd6.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd.list[ntd.list.length] = task;
-        ntd.refresh_list();
+        ntd6.list[ntd6.list.length] = task;
+        ntd6.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd.remove = function() {
+ntd6.remove = function() {
     // Remove from array and refresh list
-    ntd.list.splice(ntd.selected,1);
-    ntd.refresh_list();
+    ntd6.list.splice(ntd6.selected,1);
+    ntd6.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd.refresh_list = function() {
+ntd6.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd.list.length) {
+    if (ntd6.list.length) {
         // Add the header
         $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd.list.length;i++){
+        for (var i=0;i<ntd6.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#mathsconfirm">' + ntd.list[i] + '</a></li>'
+                    + '" href="#mathsconfirm">' + ntd6.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd_list = JSON.stringify(ntd.list || []);
+    localStorage.ntd6_list = JSON.stringify(ntd6.list || []);
 };
 // Initialize the index page
 $(document).delegate('#maths','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd_list) {
-    localStorage.ntd_list = "[]";
+if (!localStorage.ntd6_list) {
+    localStorage.ntd6_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd.list = JSON.parse(localStorage.ntd_list);
-    $('#add').bind('vclick', ntd.add);
+ntd6.list = JSON.parse(localStorage.ntd6_list);
+    $('#add').bind('vclick', ntd6.add);
     $('li a').live('vclick', function() {
-        ntd.selected = $(this).data('task');
+        ntd6.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#maths').bind('pagebeforeshow', ntd.refresh_list);
+    $('#maths').bind('pagebeforeshow', ntd6.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#mathsconfirm', 'pageinit', function(){
-    $('.remove_task_maths').bind('vclick', ntd.remove);
+    $('.remove_task_maths').bind('vclick', ntd6.remove);
 });
 
 </script>
