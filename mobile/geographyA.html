@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Geography</title>
 <script>
-var ntd5 = {};
+var geographySA = {};
 /** Read the new task and add it to the list */
-ntd5.add = function(event) {
+geographySA.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd5.list[ntd5.list.length] = task;
-        ntd5.refresh_list();
+        geographySA.list[geographySA.list.length] = task;
+        geographySA.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd5.remove = function() {
+geographySA.remove = function() {
     // Remove from array and refresh list
-    ntd5.list.splice(ntd5.selected,1);
-    ntd5.refresh_list();
+    geographySA.list.splice(geographySA.selected,1);
+    geographySA.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd5.refresh_list = function() {
+geographySA.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd5.list.length) {
+    if (geographySA.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd5.list.length;i++){
+        $tasks.append('<li data-role="list-divider">Tasks:</li>');
+        for (var i=0;i<geographySA.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#geographyconfirm">' + ntd5.list[i] + '</a></li>'
+                    + '" href="#geographyconfirm">' + geographySA.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd5.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd5_list = JSON.stringify(ntd5.list || []);
+    localStorage.geographySA_list = JSON.stringify(geographySA.list || []);
 };
 // Initialize the index page
 $(document).delegate('#geography','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd5_list) {
-    localStorage.ntd5_list = "[]";
+if (!localStorage.geographySA_list) {
+    localStorage.geographySA_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd5.list = JSON.parse(localStorage.ntd5_list);
-    $('#add').bind('vclick', ntd5.add);
+geographySA.list = JSON.parse(localStorage.geographySA_list);
+    $('#add').bind('vclick', geographySA.add);
     $('li a').live('vclick', function() {
-        ntd5.selected = $(this).data('task');
+        geographySA.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#geography').bind('pagebeforeshow', ntd5.refresh_list);
+    $('#geography').bind('pagebeforeshow', geographySA.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#geographyconfirm', 'pageinit', function(){
-    $('.remove_task_geography').bind('vclick', ntd5.remove);
+    $('.remove_task_geography').bind('vclick', geographySA.remove);
 });
 
 </script>
@@ -78,8 +78,8 @@ $(document).delegate('#geographyconfirm', 'pageinit', function(){
 
 <div id="geography" data-url="geography" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>Geography</h1>
-<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<h1>Geography Assignments</h1>
+<a href="http://georgethedan.github.io/mobile/geography.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
@@ -113,12 +113,6 @@ $(document).delegate('#geographyconfirm', 'pageinit', function(){
 <a id="remove_task_geography" class="remove_task_geography" href="#geography" data-role="button" data-icon="check">Completed</a>
 &nbsp;
 <a href="#geography" data-role="button" data-icon="delete">Not Completed</a>
-
-</div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>

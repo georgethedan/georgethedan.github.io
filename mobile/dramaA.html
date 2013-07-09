@@ -36,7 +36,7 @@ dramaSA.refresh_list = function() {
     $tasks.empty();
     if (dramaSA.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Tasks&#39;s</li>');
+        $tasks.append('<li data-role="list-divider">Tasks:</li>');
         for (var i=0;i<dramaSA.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i

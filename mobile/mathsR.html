@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Maths</title>
 <script>
-var ntd6 = {};
+var mathsSR = {};
 /** Read the new task and add it to the list */
-ntd6.add = function(event) {
+mathsSR.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd6.list[ntd6.list.length] = task;
-        ntd6.refresh_list();
+        mathsSR.list[mathsSR.list.length] = task;
+        mathsSR.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd6.remove = function() {
+mathsSR.remove = function() {
     // Remove from array and refresh list
-    ntd6.list.splice(ntd6.selected,1);
-    ntd6.refresh_list();
+    mathsSR.list.splice(mathsSR.selected,1);
+    mathsSR.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd6.refresh_list = function() {
+mathsSR.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd6.list.length) {
+    if (mathsSR.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd6.list.length;i++){
+        $tasks.append('<li data-role="list-divider">Tasks:</li>');
+        for (var i=0;i<mathsSR.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#mathsconfirm">' + ntd6.list[i] + '</a></li>'
+                    + '" href="#mathsconfirm">' + mathsSR.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd6.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd6_list = JSON.stringify(ntd6.list || []);
+    localStorage.mathsSR_list = JSON.stringify(mathsSR.list || []);
 };
 // Initialize the index page
 $(document).delegate('#maths','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd6_list) {
-    localStorage.ntd6_list = "[]";
+if (!localStorage.mathsSR_list) {
+    localStorage.mathsSR_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd6.list = JSON.parse(localStorage.ntd6_list);
-    $('#add').bind('vclick', ntd6.add);
+mathsSR.list = JSON.parse(localStorage.mathsSR_list);
+    $('#add').bind('vclick', mathsSR.add);
     $('li a').live('vclick', function() {
-        ntd6.selected = $(this).data('task');
+        mathsSR.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#maths').bind('pagebeforeshow', ntd6.refresh_list);
+    $('#maths').bind('pagebeforeshow', mathsSR.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#mathsconfirm', 'pageinit', function(){
-    $('.remove_task_maths').bind('vclick', ntd6.remove);
+    $('.remove_task_maths').bind('vclick', mathsSR.remove);
 });
 
 </script>
@@ -78,8 +78,8 @@ $(document).delegate('#mathsconfirm', 'pageinit', function(){
 
 <div id="maths" data-url="maths" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>Maths</h1>
-<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<h1>Maths Reminders</h1>
+<a href="http://georgethedan.github.io/mobile/maths.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
@@ -113,12 +113,6 @@ $(document).delegate('#mathsconfirm', 'pageinit', function(){
 <a id="remove_task_maths" class="remove_task_maths" href="#maths" data-role="button" data-icon="check">Completed</a>
 &nbsp;
 <a href="#maths" data-role="button" data-icon="delete">Not Completed</a>
-
-</div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>
