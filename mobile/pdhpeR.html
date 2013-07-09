@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>PDHPE</title>
 <script>
-var ntd7 = {};
+var pdhpeSR = {};
 /** Read the new task and add it to the list */
-ntd7.add = function(event) {
+pdhpeSR.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd7.list[ntd7.list.length] = task;
-        ntd7.refresh_list();
+        pdhpeSR.list[pdhpeSR.list.length] = task;
+        pdhpeSR.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd7.remove = function() {
+pdhpeSR.remove = function() {
     // Remove from array and refresh list
-    ntd7.list.splice(ntd7.selected,1);
-    ntd7.refresh_list();
+    pdhpeSR.list.splice(pdhpeSR.selected,1);
+    pdhpeSR.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd7.refresh_list = function() {
+pdhpeSR.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd7.list.length) {
+    if (pdhpeSR.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd7.list.length;i++){
+        $tasks.append('<li data-role="list-divider">Tasks:</li>');
+        for (var i=0;i<pdhpeSR.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#pdhpeconfirm">' + ntd7.list[i] + '</a></li>'
+                    + '" href="#pdhpeconfirm">' + pdhpeSR.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd7.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd7_list = JSON.stringify(ntd7.list || []);
+    localStorage.pdhpeSR_list = JSON.stringify(pdhpeSR.list || []);
 };
 // Initialize the index page
 $(document).delegate('#pdhpe','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd7_list) {
-    localStorage.ntd7_list = "[]";
+if (!localStorage.pdhpeSR_list) {
+    localStorage.pdhpeSR_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd7.list = JSON.parse(localStorage.ntd7_list);
-    $('#add').bind('vclick', ntd7.add);
+pdhpeSR.list = JSON.parse(localStorage.pdhpeSR_list);
+    $('#add').bind('vclick', pdhpeSR.add);
     $('li a').live('vclick', function() {
-        ntd7.selected = $(this).data('task');
+        pdhpeSR.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#pdhpe').bind('pagebeforeshow', ntd7.refresh_list);
+    $('#pdhpe').bind('pagebeforeshow', pdhpeSR.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#pdhpeconfirm', 'pageinit', function(){
-    $('.remove_task_pdhpe').bind('vclick', ntd7.remove);
+    $('.remove_task_pdhpe').bind('vclick', pdhpeSR.remove);
 });
 
 </script>
@@ -78,8 +78,8 @@ $(document).delegate('#pdhpeconfirm', 'pageinit', function(){
 
 <div id="pdhpe" data-url="pdhpe" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>PDHPE</h1>
-<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<h1>PDHPE Reminders</h1>
+<a href="http://georgethedan.github.io/mobile/pdhpe.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
@@ -114,11 +114,6 @@ $(document).delegate('#pdhpeconfirm', 'pageinit', function(){
 &nbsp;
 <a href="#pdhpe" data-role="button" data-icon="delete">Not Completed</a>
 
-</div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>

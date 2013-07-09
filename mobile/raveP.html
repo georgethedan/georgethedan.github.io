@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>RaVE</title>
 <script>
-var ntd8 = {};
+var raveSP = {};
 /** Read the new task and add it to the list */
-ntd8.add = function(event) {
+raveSP.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd8.list[ntd8.list.length] = task;
-        ntd8.refresh_list();
+        raveSP.list[raveSP.list.length] = task;
+        raveSP.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd8.remove = function() {
+raveSP.remove = function() {
     // Remove from array and refresh list
-    ntd8.list.splice(ntd8.selected,1);
-    ntd8.refresh_list();
+    raveSP.list.splice(raveSP.selected,1);
+    raveSP.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd8.refresh_list = function() {
+raveSP.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd8.list.length) {
+    if (raveSP.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd8.list.length;i++){
+        $tasks.append('<li data-role="list-divider">Tasks:</li>');
+        for (var i=0;i<raveSP.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#raveconfirm">' + ntd8.list[i] + '</a></li>'
+                    + '" href="#raveconfirm">' + raveSP.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd8.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd8_list = JSON.stringify(ntd8.list || []);
+    localStorage.raveSP_list = JSON.stringify(raveSP.list || []);
 };
 // Initialize the index page
 $(document).delegate('#rave','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd8_list) {
-    localStorage.ntd8_list = "[]";
+if (!localStorage.raveSP_list) {
+    localStorage.raveSP_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd8.list = JSON.parse(localStorage.ntd8_list);
-    $('#add').bind('vclick', ntd8.add);
+raveSP.list = JSON.parse(localStorage.raveSP_list);
+    $('#add').bind('vclick', raveSP.add);
     $('li a').live('vclick', function() {
-        ntd8.selected = $(this).data('task');
+        raveSP.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#rave').bind('pagebeforeshow', ntd8.refresh_list);
+    $('#rave').bind('pagebeforeshow', raveSP.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#raveconfirm', 'pageinit', function(){
-    $('.remove_task_rave').bind('vclick', ntd8.remove);
+    $('.remove_task_rave').bind('vclick', raveSP.remove);
 });
 
 </script>
@@ -78,8 +78,8 @@ $(document).delegate('#raveconfirm', 'pageinit', function(){
 
 <div id="rave" data-url="rave" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>RaVE</h1>
-<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<h1>RaVE Prep</h1>
+<a href="http://georgethedan.github.io/mobile/rave.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
@@ -114,11 +114,6 @@ $(document).delegate('#raveconfirm', 'pageinit', function(){
 &nbsp;
 <a href="#rave" data-role="button" data-icon="delete">Not Completed</a>
 
-</div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>
