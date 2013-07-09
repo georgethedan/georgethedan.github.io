@@ -36,7 +36,7 @@ ntd3A.refresh_list = function() {
     $tasks.empty();
     if (ntd3A.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
+        $tasks.append('<li data-role="list-divider">Tasks&#39;s</li>');
         for (var i=0;i<ntd3A.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
@@ -85,7 +85,7 @@ $(document).delegate('#englishconfirm', 'pageinit', function(){
 <div data-role="content">
 
 <ul id="task_list" data-role="listview">
-<li data-role="list-divider">To do:</li>
+<li data-role="list-divider">Tasks:</li>
 <li><a href="#englishconfirm">Homework 1</a></li>
 <li><a href="#englishconfirm">Assignment 1</a></li>
 <li data-role="list-divider">Add:</li>
