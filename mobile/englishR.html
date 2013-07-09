@@ -9,38 +9,38 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>English</title>
 <script>
-var ntd3R = {};
+var englishSR = {};
 /** Read the new task and add it to the list */
-ntd3R.add = function(event) {
+englishSR.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        ntd3R.list[ntd3R.list.length] = task;
-        ntd3R.refresh_list();
+        englishSR.list[englishSR.list.length] = task;
+        englishSR.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-ntd3R.remove = function() {
+englishSR.remove = function() {
     // Remove from array and refresh list
-    ntd3R.list.splice(ntd3R.selected,1);
-    ntd3R.refresh_list();
+    englishSR.list.splice(englishSR.selected,1);
+    englishSR.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-ntd3R.refresh_list = function() {
+englishSR.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ntd3R.list.length) {
+    if (englishSR.list.length) {
         // Add the header
         $tasks.append('<li data-role="list-divider">Tasks&#39;s</li>');
-        for (var i=0;i<ntd3R.list.length;i++){
+        for (var i=0;i<englishSR.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#englishconfirm">' + ntd3R.list[i] + '</a></li>'
+                    + '" href="#englishconfirm">' + englishSR.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,28 +48,28 @@ ntd3R.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.ntd3R_list = JSON.stringify(ntd3R.list || []);
+    localStorage.englishSR_list = JSON.stringify(englishSR.list || []);
 };
 // Initialize the index page
 $(document).delegate('#english','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.ntd3R_list) {
-    localStorage.ntd3R_list = "[]";
+if (!localStorage.englishSR_list) {
+    localStorage.englishSR_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ntd3R.list = JSON.parse(localStorage.ntd3R_list);
-    $('#add').bind('vclick', ntd3R.add);
+englishSR.list = JSON.parse(localStorage.englishSR_list);
+    $('#add').bind('vclick', englishSR.add);
     $('li a').live('vclick', function() {
-        ntd3R.selected = $(this).data('task');
+        englishSR.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#english').bind('pagebeforeshow', ntd3R.refresh_list);
+    $('#english').bind('pagebeforeshow', englishSR.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#englishconfirm', 'pageinit', function(){
-    $('.remove_task_english').bind('vclick', ntd3R.remove);
+    $('.remove_task_english').bind('vclick', englishSR.remove);
 });
 
 </script>
@@ -113,8 +113,6 @@ $(document).delegate('#englishconfirm', 'pageinit', function(){
 <a id="remove_task_english" class="remove_task_english" href="#english" data-role="button" data-icon="check">Completed</a>
 &nbsp;
 <a href="#english" data-role="button" data-icon="delete">Not Completed</a>
-
-</div></div>
 </div>
 </div>
 </body>

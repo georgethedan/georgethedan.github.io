@@ -8,113 +8,23 @@
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Drama</title>
-<script>
-var ntd2 = {};
-/** Read the new task and add it to the list */
-ntd2.add = function(event) {
-    // Read the task from the input
-    var task=$('input').val();
-    if (task) {
-        // Add the task to array and refresh list
-        ntd2.list[ntd2.list.length] = task;
-        ntd2.refresh_list();
-        // Clear the input
-        $('input').val('');
-    }
-    event.preventDefault();
-};
-/** Remove the task which was marked as selected */
-ntd2.remove = function() {
-    // Remove from array and refresh list
-    ntd2.list.splice(ntd2.selected,1);
-    ntd2.refresh_list();
-};
-/** Recreate the entire list from the available list of tasks */
-ntd2.refresh_list = function() {
-    var $tasks = $('#task_list'), i;
-    // Clear the existing task list
-    $tasks.empty();
-    if (ntd2.list.length) {
-        // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd2.list.length;i++){
-            // Append each task
-            var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#dramaconfirm">' + ntd2.list[i] + '</a></li>'
-            $tasks.append(li);
-        }
-    }
-    // Add the header for addition of new tasks
-    $tasks.append('<li data-role="list-divider">Add a task</li>');
-    // Use jQuery Mobile's listview method to refresh
-    $tasks.listview('refresh');
-    localStorage.ntd2_list = JSON.stringify(ntd2.list || []);
-};
-// Initialize the index page
-$(document).delegate('#drama','pageinit', function() {
-    // Initialize the not to do list to an empty list
-// If no list is already present, initialize it
-if (!localStorage.ntd2_list) {
-    localStorage.ntd2_list = "[]";
-}
-// Load the list by parsing the JSON from localStorage
-ntd2.list = JSON.parse(localStorage.ntd2_list);
-    $('#add').bind('vclick', ntd2.add);
-    $('li a').live('vclick', function() {
-        ntd2.selected = $(this).data('task');
-    });
-    // Refresh the list everytime the page is reloaded
-    $('#drama').bind('pagebeforeshow', ntd2.refresh_list);
-});
-
-// Bind the 'Done' and 'Not Done' buttons to task removal
-$(document).delegate('#dramaconfirm', 'pageinit', function(){
-    $('.remove_task_drama').bind('vclick', ntd2.remove);
-});
-
-</script>
 </head>
 <body>
 
 <div id="drama" data-url="drama" data-role="page">
 <div data-role="header" data-position="fixed">
 <h1>Drama</h1>
-<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<a href="http://georgethedan.github.io" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
 
 <ul id="task_list" data-role="listview">
-<li data-role="list-divider">To do:</li>
-<li><a href="#dramaconfirm">Homework 1</a></li>
-<li><a href="#dramaconfirm">Assignment 1</a></li>
-<li data-role="list-divider">Add:</li>
+<li data-role="list-divider">Add to:</li>
+<li><a href="http://georgethedan.github.io/mobile/dramaP" data-ajax="false">Prep</a></li>
+<li><a href="http://georgethedan.github.io/mobile/dramaA" data-ajax="false">Assignments</a></li>
+<li><a href="http://georgethedan.github.io/mobile/dramaR" data-ajax="false">Reminder</a></li>
 </ul>
-
-<form id="form_tw13" method="GET">
-
-<div data-role="fieldcontain">
-<label for="inp_tw14"></label>
-<input type="text" name="inp_tw14" id="inp_tw14" />
-</div>
-
-<input id="add" type="button" data-icon="plus" value="Add"/>
-</form>
-
-</div></div>
-
-<div id="dramaconfirm" data-url="dramaconfirm" data-role="page">
-<div data-role="header">
-<h1>Done?</h1>
-</div>
-
-<div data-role="content">
-&nbsp;
-<a id="remove_task_drama" class="remove_task_drama" href="#drama" data-role="button" data-icon="check">Completed</a>
-&nbsp;
-<a href="#drama" data-role="button" data-icon="delete">Not Completed</a>
-
-</div></div>
 </div>
 </div>
 </body>

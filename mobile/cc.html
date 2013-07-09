@@ -8,117 +8,25 @@
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Classical Civilastions</title>
-<script>
-var ntd = {};
-/** Read the new task and add it to the list */
-ntd.add = function(event) {
-    // Read the task from the input
-    var task=$('input').val();
-    if (task) {
-        // Add the task to array and refresh list
-        ntd.list[ntd.list.length] = task;
-        ntd.refresh_list();
-        // Clear the input
-        $('input').val('');
-    }
-    event.preventDefault();
-};
-/** Remove the task which was marked as selected */
-ntd.remove = function() {
-    // Remove from array and refresh list
-    ntd.list.splice(ntd.selected,1);
-    ntd.refresh_list();
-};
-/** Recreate the entire list from the available list of tasks */
-ntd.refresh_list = function() {
-    var $tasks = $('#task_list'), i;
-    // Clear the existing task list
-    $tasks.empty();
-    if (ntd.list.length) {
-        // Add the header
-        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
-        for (var i=0;i<ntd.list.length;i++){
-            // Append each task
-            var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#ccconfirm">' + ntd.list[i] + '</a></li>'
-            $tasks.append(li);
-        }
-    }
-    // Add the header for addition of new tasks
-    $tasks.append('<li data-role="list-divider">Add a task</li>');
-    // Use jQuery Mobile's listview method to refresh
-    $tasks.listview('refresh');
-    localStorage.ntd_list = JSON.stringify(ntd.list || []);
-};
-// Initialize the index page
-$(document).delegate('#cc','pageinit', function() {
-    // Initialize the not to do list to an empty list
-// If no list is already present, initialize it
-if (!localStorage.ntd_list) {
-    localStorage.ntd_list = "[]";
-}
-// Load the list by parsing the JSON from localStorage
-ntd.list = JSON.parse(localStorage.ntd_list);
-    $('#add').bind('vclick', ntd.add);
-    $('li a').live('vclick', function() {
-        ntd.selected = $(this).data('task');
-    });
-    // Refresh the list everytime the page is reloaded
-    $('#cc').bind('pagebeforeshow', ntd.refresh_list);
-});
-
-// Bind the 'Done' and 'Not Done' buttons to task removal
-$(document).delegate('#ccconfirm', 'pageinit', function(){
-    $('.remove_task_cc').bind('vclick', ntd.remove);
-});
-
-</script>
 </head>
 <body>
 
 <div id="cc" data-url="cc" data-role="page">
 <div data-role="header" data-position="fixed">
 <h1>Classic Civ's</h1>
-<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<a href="http://georgethedan.github.io" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
 
 <ul id="task_list" data-role="listview">
-<li data-role="list-divider">To do:</li>
-<li><a href="#ccconfirm">Homework 1</a></li>
-<li><a href="#ccconfirm">Assignment 1</a></li>
-<li data-role="list-divider">Add:</li>
+<li data-role="list-divider">Add to:</li>
+<li><a href="http://georgethedan.github.io/mobile/ccP" data-ajax="false">Prep</a></li>
+<li><a href="http://georgethedan.github.io/mobile/ccA" data-ajax="false">Assignments</a></li>
+<li><a href="http://georgethedan.github.io/mobile/ccR" data-ajax="false">Reminder</a></li>
 </ul>
 
-<form id="form_tw13" method="GET">
 
-<div data-role="fieldcontain">
-<label for="inp_tw14"></label>
-<input type="text" name="inp_tw14" id="inp_tw14" />
-</div>
-
-<input id="add" type="button" data-icon="plus" value="Add"/>
-</form>
-
-</div></div>
-
-<div id="ccconfirm" data-url="ccconfirm" data-role="page">
-<div data-role="header">
-<h1>Done?</h1>
-</div>
-
-<div data-role="content">
-&nbsp;
-<a id="remove_task_cc" class="remove_task_cc" href="#cc" data-role="button" data-icon="check">Completed</a>
-&nbsp;
-<a href="#cc" data-role="button" data-icon="delete">Not Completed</a>
-
-</div></div>
-</div>
-
-<div data-role="footer" data-position="fixed">
-<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>

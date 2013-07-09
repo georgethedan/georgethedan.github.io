@@ -7,40 +7,40 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
-<title>English</title>
+<title>Science</title>
 <script>
-var englishSA = {};
+var ntd9 = {};
 /** Read the new task and add it to the list */
-englishSA.add = function(event) {
+ntd9.add = function(event) {
     // Read the task from the input
     var task=$('input').val();
     if (task) {
         // Add the task to array and refresh list
-        englishSA.list[englishSA.list.length] = task;
-        englishSA.refresh_list();
+        ntd9.list[ntd9.list.length] = task;
+        ntd9.refresh_list();
         // Clear the input
         $('input').val('');
     }
     event.preventDefault();
 };
 /** Remove the task which was marked as selected */
-englishSA.remove = function() {
+ntd9.remove = function() {
     // Remove from array and refresh list
-    englishSA.list.splice(englishSA.selected,1);
-    englishSA.refresh_list();
+    ntd9.list.splice(ntd9.selected,1);
+    ntd9.refresh_list();
 };
 /** Recreate the entire list from the available list of tasks */
-englishSA.refresh_list = function() {
+ntd9.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (englishSA.list.length) {
+    if (ntd9.list.length) {
         // Add the header
-        $tasks.append('<li data-role="list-divider">Tasks&#39;s</li>');
-        for (var i=0;i<englishSA.list.length;i++){
+        $tasks.append('<li data-role="list-divider">Not To Do&#39;s</li>');
+        for (var i=0;i<ntd9.list.length;i++){
             // Append each task
             var li = '<li><a data-rel="page" data-task="' + i
-                    + '" href="#englishconfirm">' + englishSA.list[i] + '</a></li>'
+                    + '" href="#scienceconfirm">' + ntd9.list[i] + '</a></li>'
             $tasks.append(li);
         }
     }
@@ -48,46 +48,46 @@ englishSA.refresh_list = function() {
     $tasks.append('<li data-role="list-divider">Add a task</li>');
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
-    localStorage.englishSA_list = JSON.stringify(englishSA.list || []);
+    localStorage.ntd9_list = JSON.stringify(ntd9.list || []);
 };
 // Initialize the index page
-$(document).delegate('#english','pageinit', function() {
+$(document).delegate('#science','pageinit', function() {
     // Initialize the not to do list to an empty list
 // If no list is already present, initialize it
-if (!localStorage.englishSA_list) {
-    localStorage.englishSA_list = "[]";
+if (!localStorage.ntd9_list) {
+    localStorage.ntd9_list = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-englishSA.list = JSON.parse(localStorage.englishSA_list);
-    $('#add').bind('vclick', englishSA.add);
+ntd9.list = JSON.parse(localStorage.ntd9_list);
+    $('#add').bind('vclick', ntd9.add);
     $('li a').live('vclick', function() {
-        englishSA.selected = $(this).data('task');
+        ntd9.selected = $(this).data('task');
     });
     // Refresh the list everytime the page is reloaded
-    $('#english').bind('pagebeforeshow', englishSA.refresh_list);
+    $('#science').bind('pagebeforeshow', ntd9.refresh_list);
 });
 
 // Bind the 'Done' and 'Not Done' buttons to task removal
-$(document).delegate('#englishconfirm', 'pageinit', function(){
-    $('.remove_task_english').bind('vclick', englishSA.remove);
+$(document).delegate('#scienceconfirm', 'pageinit', function(){
+    $('.remove_task_science').bind('vclick', ntd9.remove);
 });
 
 </script>
 </head>
 <body>
 
-<div id="english" data-url="english" data-role="page">
+<div id="science" data-url="science" data-role="page">
 <div data-role="header" data-position="fixed">
-<h1>English Assignments</h1>
-<a href="http://georgethedan.github.io/mobile/english" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
+<h1>Science</h1>
+<a href="http://georgethedan.github.io/mobile/weeka.html" data-ajax="false" class="ui-btn-right" onClick="scrollableDiv.ontouchmove = function(e) {e.stopPropagation()};">Home</a>
 </div>
 
 <div data-role="content">
 
 <ul id="task_list" data-role="listview">
-<li data-role="list-divider">Tasks:</li>
-<li><a href="#englishconfirm">Homework 1</a></li>
-<li><a href="#englishconfirm">Assignment 1</a></li>
+<li data-role="list-divider">To do:</li>
+<li><a href="#scienceconfirm">Homework 1</a></li>
+<li><a href="#scienceconfirm">Assignment 1</a></li>
 <li data-role="list-divider">Add:</li>
 </ul>
 
@@ -103,16 +103,22 @@ $(document).delegate('#englishconfirm', 'pageinit', function(){
 
 </div></div>
 
-<div id="englishconfirm" data-url="englishconfirm" data-role="page">
+<div id="scienceconfirm" data-url="scienceconfirm" data-role="page">
 <div data-role="header">
 <h1>Done?</h1>
 </div>
 
 <div data-role="content">
 &nbsp;
-<a id="remove_task_english" class="remove_task_english" href="#english" data-role="button" data-icon="check">Completed</a>
+<a id="remove_task_science" class="remove_task_science" href="#science" data-role="button" data-icon="check">Completed</a>
 &nbsp;
-<a href="#english" data-role="button" data-icon="delete">Not Completed</a>
+<a href="#science" data-role="button" data-icon="delete">Not Completed</a>
+
+</div></div>
+</div>
+
+<div data-role="footer" data-position="fixed">
+<h1>Made by George Dan</h1>
 </div>
 </div>
 </body>
