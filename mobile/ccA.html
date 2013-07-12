@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
 <title>Classical Civilastions</title>
 <script>
+$("#form_tw13").submit(function(){
+$.mobile.pageLoading();
 var ccSA = {};
 /** Read the new task and add it to the list */
 ccSA.add = function(event) {
@@ -71,7 +73,7 @@ ccSA.list = JSON.parse(localStorage.ccSA_list);
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSA.remove);
 });
-
+});
 </script>
 </head>
 <body>
