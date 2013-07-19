@@ -74,6 +74,11 @@ ccSA.list = JSON.parse(localStorage.ccSA_list);
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSA.remove);
 });
+enterkey = new function(e){
+if (e.keyCode == 13) {
+		ccSA.add();
+    }
+}
 </script>
 </head>
 <body>
@@ -97,7 +102,7 @@ $(document).delegate('#ccconfirm', 'pageinit', function(){
 
 <div data-role="fieldcontain">
 <label for="inp_tw14"></label>
-<input type="text" name="inp_tw14" id="inp_tw14" />
+<input type="text" name="inp_tw14" id="inp_tw14" onkeypress="enterkey(event)" />
 </div>
 
 <input id="add" type="button" data-icon="plus" value="Add"/>
