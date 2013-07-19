@@ -74,6 +74,11 @@ ccSA.list = JSON.parse(localStorage.ccSA_list);
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSA.remove);
 });
+$(document).keypress(function(e) {
+    if(e.which == 13) {
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>
@@ -93,7 +98,7 @@ $(document).delegate('#ccconfirm', 'pageinit', function(){
 <li data-role="list-divider">Add:</li>
 </ul>
 
-<form id="form_tw13" method="GET" data-ajax="false">
+<form id="form_tw13" method="GET">
 
 <div data-role="fieldcontain">
 <label for="inp_tw14"></label>
