@@ -12,8 +12,6 @@
 <script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
 <title>Classical Civilastions</title>
 <script>
-$("#form_tw13").submit(function(){
-$.mobile.pageLoading();
 var ccSA = {};
 /** Read the new task and add it to the list */
 ccSA.add = function(event) {
@@ -75,7 +73,6 @@ ccSA.list = JSON.parse(localStorage.ccSA_list);
 // Bind the 'Done' and 'Not Done' buttons to task removal
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSA.remove);
-});
 });
 </script>
 </head>
