@@ -74,11 +74,6 @@ ccSA.list = JSON.parse(localStorage.ccSA_list);
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSA.remove);
 });
-$(document).keypress(function(e) {
-    if(e.which == 13) {
-        ccSA.add();
-    }
-});
 </script>
 </head>
 <body>
