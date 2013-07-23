@@ -34,7 +34,7 @@ ccSA.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ccSP.list.length) {
+    if (ccSA.list.length) {
         // Add the header
         $tasks.append('<li data-role="list-divider">Tasks:</li>');
         for (var i=0;i<ccSA.list.length;i++){
