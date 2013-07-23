@@ -7,9 +7,6 @@
 <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
 <link rel="stylesheet" href="jquery.mobile-1.1.0.custom.css?" />
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
-<script src="http://code.jquery.com/jquery-1.5.min.js"></script>
-<script src="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.js"></script>
 <title>Classical Civilastions</title>
 <script>
 var ccSA = {};
@@ -37,7 +34,7 @@ ccSA.refresh_list = function() {
     var $tasks = $('#task_list'), i;
     // Clear the existing task list
     $tasks.empty();
-    if (ccSA.list.length) {
+    if (ccSP.list.length) {
         // Add the header
         $tasks.append('<li data-role="list-divider">Tasks:</li>');
         for (var i=0;i<ccSA.list.length;i++){
@@ -74,6 +71,7 @@ ccSA.list = JSON.parse(localStorage.ccSA_list);
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSA.remove);
 });
+
 </script>
 </head>
 <body>
@@ -100,7 +98,7 @@ $(document).delegate('#ccconfirm', 'pageinit', function(){
 <input type="text" name="inp_tw14" id="inp_tw14" />
 </div>
 
-<input id="add" data-icon="plus" value="Add"/>
+<input id="add" type="button" data-icon="plus" value="Add"/>
 </form>
 
 </div></div>
@@ -116,6 +114,7 @@ $(document).delegate('#ccconfirm', 'pageinit', function(){
 &nbsp;
 <a href="#cc" data-role="button" data-icon="delete">Not Completed</a>
 
-</div></div>
+</div>
+</div>
 </body>
 </html>
