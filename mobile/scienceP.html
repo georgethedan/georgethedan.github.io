@@ -21,7 +21,7 @@ scienceSP.add = function(event) {
         // Clear the input
         $('input').val('');
     }
-    event.preventDefault();
+    location.reload();
 };
 /** Remove the task which was marked as selected */
 scienceSP.remove = function() {
@@ -71,7 +71,11 @@ scienceSP.list = JSON.parse(localStorage.scienceSP_list);
 $(document).delegate('#scienceconfirm', 'pageinit', function(){
     $('.remove_task_science').bind('vclick', scienceSP.remove);
 });
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>

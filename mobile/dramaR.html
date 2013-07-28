@@ -21,7 +21,7 @@ dramaSR.add = function(event) {
         // Clear the input
         $('input').val('');
     }
-    event.preventDefault();
+    location.reload();
 };
 /** Remove the task which was marked as selected */
 dramaSR.remove = function() {
@@ -71,7 +71,11 @@ dramaSR.list = JSON.parse(localStorage.dramaSR_list);
 $(document).delegate('#dramaconfirm', 'pageinit', function(){
     $('.remove_task_drama').bind('vclick', dramaSR.remove);
 });
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>

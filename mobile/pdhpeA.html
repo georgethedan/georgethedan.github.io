@@ -21,7 +21,7 @@ pdhpeSA.add = function(event) {
         // Clear the input
         $('input').val('');
     }
-    event.preventDefault();
+    location.reload();
 };
 /** Remove the task which was marked as selected */
 pdhpeSA.remove = function() {
@@ -71,7 +71,11 @@ pdhpeSA.list = JSON.parse(localStorage.pdhpeSA_list);
 $(document).delegate('#pdhpeconfirm', 'pageinit', function(){
     $('.remove_task_pdhpe').bind('vclick', pdhpeSA.remove);
 });
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>

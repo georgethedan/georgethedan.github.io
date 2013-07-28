@@ -21,7 +21,7 @@ raveSP.add = function(event) {
         // Clear the input
         $('input').val('');
     }
-    event.preventDefault();
+    location.reload();
 };
 /** Remove the task which was marked as selected */
 raveSP.remove = function() {
@@ -71,7 +71,11 @@ raveSP.list = JSON.parse(localStorage.raveSP_list);
 $(document).delegate('#raveconfirm', 'pageinit', function(){
     $('.remove_task_rave').bind('vclick', raveSP.remove);
 });
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>

@@ -21,7 +21,7 @@ ccSP.add = function(event) {
         // Clear the input
         $('input').val('');
     }
-    event.preventDefault();
+    location.reload();
 };
 /** Remove the task which was marked as selected */
 ccSP.remove = function() {
@@ -71,7 +71,11 @@ ccSP.list = JSON.parse(localStorage.ccSP_list);
 $(document).delegate('#ccconfirm', 'pageinit', function(){
     $('.remove_task_cc').bind('vclick', ccSP.remove);
 });
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>

@@ -21,7 +21,7 @@ frenchSR.add = function(event) {
         // Clear the input
         $('input').val('');
     }
-    event.preventDefault();
+    location.reload();
 };
 /** Remove the task which was marked as selected */
 frenchSR.remove = function() {
@@ -71,7 +71,11 @@ frenchSR.list = JSON.parse(localStorage.frenchSR_list);
 $(document).delegate('#frenchconfirm', 'pageinit', function(){
     $('.remove_task_french').bind('vclick', frenchSR.remove);
 });
-
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccSA.add();
+    }
+});
 </script>
 </head>
 <body>
