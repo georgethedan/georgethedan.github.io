@@ -68,7 +68,7 @@
 $(document).ready(function() {
 	$("table").css('height', $(window).height());
 });
-e.preventDefault();
+document.ontouchmove = function(e) {e.preventDefault()};
 </script
 </head>
 <body style="height: 100%">
