@@ -10,18 +10,17 @@
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 <meta content="minimum-scale=1.0, width=device-width, maximum-scale=0.6667, user-scalable=no" name="viewport" />
 <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />    
-<script>
-	event.preventDefault();
-</script>
+    <script>
+document.ontouchmove = function(e) {e.preventDefault()};
+    </script>
 </head>
 <body>
 
 <div data-role="page" data-theme="a">
 <div data-role="header" data-theme="b">
 <h1>Subjects</h1>
-<a class="ui-btn-right" id="test" onClick=("location.replace('http://georgethedan.github.io')")>Timetable</a>
+<a class="ui-btn-right" id="test" onClick="location.replace('http://georgethedan.github.io')">Timetable</a>
 </div>
-
 <div data-role="content" onClick=("document.ontouchmove = function(e) {e.stopPropagation()};")>
 <ul data-role="listview" data-inset="true">
     <li><a onClick="location.replace('http://georgethedan.github.io/mobile/cc.html')">Classic Civ's</a></li>
