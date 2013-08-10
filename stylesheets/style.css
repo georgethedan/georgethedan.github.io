@@ -16,3 +16,7 @@
 .ui-btn-active{
     background:red !important;
 }
+@font-face {
+  font-family: agencyfb;
+  src: url('http://georgethedan.github.io/mobile/agencyfb.otf') format('opentype');
+}
