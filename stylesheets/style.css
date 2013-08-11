@@ -15,8 +15,15 @@
     border-style: solid;
     border-color: white;
 }
-.ui-btn-active{
-    background:red !important;
+.ui-btn-active {
+	border: 1px solid #ed1c24 /*{global-active-border}*/;
+	background: #ed1c24 /*{global-active-background-color}*/;
+	font-weight: bold;
+	color: #ffffff /*{global-active-color}*/;
+	cursor: pointer;
+	text-shadow: 0 /*{global-active-shadow-x}*/ 1px /*{global-active-shadow-y}*/ 0 /*{global-active-shadow-radius}*/ #444444 /*{global-active-shadow-color}*/;
+	text-decoration: none;
+	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
 @font-face {
   font-family: agencyfb;
