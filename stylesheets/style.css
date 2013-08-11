@@ -1,19 +1,17 @@
  table.mystyle
 {
-    border-width: 0 0 1px 1px;
+    border-width: 0 0 0px 0px;
     border-spacing: 0;
     border-collapse: collapse;
     border-style: solid;
-    border-color: white;
 }
 
 .mystyle td, .mystyle th
 {
     margin: 0;
     padding: 4px;
-    border-width: 1px 1px 0 0;
+    border-width: 0px 0px 0 0;
     border-style: solid;
-    border-color: white;
 }
 .ui-btn-active {
 	border: 1px solid #ed1c24 /*{global-active-border}*/;
