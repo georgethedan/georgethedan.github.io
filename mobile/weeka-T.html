@@ -43,16 +43,15 @@
 </script>
 </head>
 <body>
+<link rel="stylesheet" href="http://georgethedan.github.io/stylesheets/style/stuff.min.css">
 <div data-role="page" data-theme="f" id="timetable">
-    <div data-role="header" data-theme="f">
+    <div data-role="header" data-theme="a">
         <h1>Timetable</h1>
         <a href="http://georgethedan.github.io/mobile/about.html" data-icon="info" class="ui-btn-right" data-theme="f">About</a>
         <div data-role="navbar">
         <ul>
-				<input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="weeka" checked="checked" />
-				<label for="radio-choice-a1">Week A</label>
-				<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="weekb"  onClick='location.replace("http://georgethedan.github.io/mobile/weekb-T")' data-ajax="false"/>
-				<label for="radio-choice-b1">Week B</label>
+				<li><a data-theme="f" class="ui-btn-active">Week A</a></li>
+				<li><a data-theme="f" onClick='location.replace("http://georgethedan.github.io/mobile/weekb-T")' data-ajax="false">Week B</a></li>
         </ul>
     </div>
     </div><!-- /header -->
