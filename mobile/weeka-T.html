@@ -1,7 +1,7 @@
 <html style="Height: 100%">
 <head>
 <title>Home</title>
-<link rel="stylesheet" href="http://georgethedan.github.io/stylesheets/style.css">
+<link rel="stylesheet" href="http://georgethedan.github.io/stylesheets/style/style.min.css">
 <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
 <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
@@ -43,18 +43,20 @@
 </script>
 </head>
 <body>
-<div data-role="page" data-theme="b" id="timetable">
-    <div data-role="header" data-theme="b">
+<div data-role="page" data-theme="f" id="timetable">
+    <div data-role="header" data-theme="f">
         <h1>Timetable</h1>
-        <a href="http://georgethedan.github.io/mobile/about.html" data-icon="info" class="ui-btn-right" data-theme="a">About</a>
+        <a href="http://georgethedan.github.io/mobile/about.html" data-icon="info" class="ui-btn-right" data-theme="f">About</a>
         <div data-role="navbar">
         <ul>
-            <li><a data-theme="f" class="ui-btn-active">Week A</a></li>
-            <li><a data-theme="e" onClick='location.replace("http://georgethedan.github.io/mobile/weekb-T")' data-ajax="false">Week B</a></li>
+				<input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="weeka" checked="checked" />
+				<label for="radio-choice-a1">Week A</label>
+				<input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="weekb"  onClick='location.replace("http://georgethedan.github.io/mobile/weekb-T")' data-ajax="false"/>
+				<label for="radio-choice-b1">Week B</label>
         </ul>
     </div>
     </div><!-- /header -->
-    <div data-role="content" id="timetable1">
+    <div data-role="content" id="timetable1" bgcolor='white'>
 <table class="mystyle" width='100%' onClick="location.replace('http://georgethedan.github.io/mobile/subjects')">
   <tr>
    <th>   </th>
