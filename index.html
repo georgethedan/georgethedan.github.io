@@ -11,7 +11,7 @@ var isiPad = /ipad/i.test(navigator.userAgent.toLowerCase());
 if (isiD)
  {
   var x = confirm('Would you like to install DOTT now?')
-  if (confirm){
+  if (x){
   window.location.replace('http://georgethedan.github.io/DOTT-Mobile.mobileconfig')
   setTimeout(function() {
   window.location.replace('http://georgethedan.github.io/success')
@@ -23,7 +23,7 @@ if (isiD)
  }
  else if (isiPad){
   var x = confirm('Would you like to install DOTT now?')
-  if (confirm){
+  if (x){
   window.location.replace('http://georgethedan.github.io/DOTT-Tablet.mobileconfig')
   setTimeout(function() {
   window.location.replace('http://georgethedan.github.io/successT')
