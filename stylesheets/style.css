@@ -25,7 +25,8 @@
 	text-decoration: none;
 	font-family: Helvetica, Arial, sans-serif /*{global-font-family}*/;
 }
-@font-face {
-  font-family: agencyfb;
-  src: url('http://georgethedan.github.io/mobile/agencyfb.otf') format('opentype');
+<style>
+.ui-navbar li .ui-btn .ui-btn-inner, .ui-navbar li .ui-btn {
+    border: 0 solid red !important;
 }
+<style>
