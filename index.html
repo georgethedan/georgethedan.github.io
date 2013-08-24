@@ -12,7 +12,13 @@ if (isiD)
  {
   var x = confirm('Would you like to install DOTT now?')
   if (x){
+  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+  if (isSafari){
   window.location.replace('http://georgethedan.github.io/DOTT-Mobile.mobileconfig')
+  }else{
+  alert('Please use Safari to install DOTT!')
+  window.location.replace("http://georgethedan.github.io/mobile/weeka");
+  }
   setTimeout(function() {
   window.location.replace('http://georgethedan.github.io/success')
 }, 1000);
@@ -24,7 +30,13 @@ if (isiD)
  else if (isiPad){
   var x = confirm('Would you like to install DOTT now?')
   if (x){
+  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
+  if (isSafari){
   window.location.replace('http://georgethedan.github.io/DOTT-Tablet.mobileconfig')
+  }else{
+  alert('Please use Safari to install DOTT!')
+  window.location.replace("http://georgethedan.github.io/mobile/weeka-T");
+  }
   setTimeout(function() {
   window.location.replace('http://georgethedan.github.io/successT')
 }, 1000);
