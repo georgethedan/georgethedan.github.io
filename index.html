@@ -5,14 +5,31 @@
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 <script>
-var isMobile = /android.+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent.toLowerCase());
+var isMobile = /android.+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent.toLowerCase());
+var isiD = /ip(hone|od)/i.test(navigator.userAgent.toLowerCase());
 var isiPad = /ipad/i.test(navigator.userAgent.toLowerCase());
-if (isMobile)
-{
-  window.location.replace("http://georgethedan.github.io/mobile/weeka");
+if (isiD)
+ {
+  var x = confirm('Would you like to install DOTT now?')
+  if (confirm){
+  window.location.replace('http://georgethedan.github.io/DOTT-Mobile.mobileconfig')
+  }
+  else{
+   window.location.replace("http://georgethedan.github.io/mobile/weeka");
+  }
+ }
+ else if (isiPad){
+  var x = confirm('Would you like to install DOTT now?')
+  if (confirm){
+  window.location.replace('http://georgethedan.github.io/DOTT-Tablet.mobileconfig')
+  }
+  else{
+  window.location.replace("http://georgethedan.github.io/mobile/weeka-T");
+  }
 }
-else if (isiPad){
-	window.location.replace("http://georgethedan.github.io/mobile/weeka-T");	
+else if (isMobile)
+{
+window.location.replace("http://georgethedan.github.io/mobile/weeka");	
 }
 else
 {
