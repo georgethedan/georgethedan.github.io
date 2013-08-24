@@ -12,7 +12,9 @@ if (isiD)
  {
   var x = confirm('Would you like to install DOTT now?')
   if (confirm){
+  setTimeout(function() {
   window.location.replace('http://georgethedan.github.io/DOTT-Mobile.mobileconfig')
+}, 1000);
   window.location.replace('http://georgethedan.github.io/success')
   }
   else{
@@ -22,7 +24,9 @@ if (isiD)
  else if (isiPad){
   var x = confirm('Would you like to install DOTT now?')
   if (confirm){
+  setTimeout(function() {
   window.location.replace('http://georgethedan.github.io/DOTT-Tablet.mobileconfig')
+}, 1000);
   window.location.replace('http://georgethedan.github.io/success')
   }
   else{
