@@ -8,40 +8,37 @@
 var isMobile = /android.+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|iris|kindle|lge |maemo|midp|mmp|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|symbian|treo|up\.(browser|link)|vodafone|wap|windows (ce|phone)|xda|xiino/i.test(navigator.userAgent.toLowerCase());
 var isiD = /ip(hone|od)/i.test(navigator.userAgent.toLowerCase());
 var isiPad = /ipad/i.test(navigator.userAgent.toLowerCase());
+var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 if (isiD)
  {
   var x = confirm('Would you like to install DOTT now?')
   if (x){
-  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
   if (isSafari){
   window.location.replace('http://georgethedan.github.io/DOTT-Mobile.mobileconfig')
+  setTimeout(function() {
+  window.location.replace('http://georgethedan.github.io/success')
+}, 1000);
   }else{
   alert('Please use Safari to install DOTT!')
   window.location.replace("http://georgethedan.github.io/mobile/weeka");
   }
-  setTimeout(function() {
-  window.location.replace('http://georgethedan.github.io/success')
-}, 1000);
-  }
-  else{
+  }else{
    window.location.replace("http://georgethedan.github.io/mobile/weeka");
   }
  }
  else if (isiPad){
   var x = confirm('Would you like to install DOTT now?')
   if (x){
-  var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
   if (isSafari){
   window.location.replace('http://georgethedan.github.io/DOTT-Tablet.mobileconfig')
+  setTimeout(function() {
+  window.location.replace('http://georgethedan.github.io/successT')
+  }, 1000);
+  }
   }else{
   alert('Please use Safari to install DOTT!')
   window.location.replace("http://georgethedan.github.io/mobile/weeka-T");
-  }
-  setTimeout(function() {
-  window.location.replace('http://georgethedan.github.io/successT')
-}, 1000);
-  }
-  else{
+  }else{
   window.location.replace("http://georgethedan.github.io/mobile/weeka-T");
   }
 }
