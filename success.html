@@ -11,12 +11,15 @@
 <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1" media="(device-height: 568px)" />
 <script>
 document.ontouchmove = function(e) {e.preventDefault()};
-$(document).ready(function(){
-    $.browser.safari = $.browser.webkit && !window.chrome;
-    if (!$.browser.safari){
-        alert("Please use safari to install DOTT!")
-	}
-});
+var ua = navigator.userAgent.toLowerCase();
+if(ua.indexOf('chrome')  > -1){
+    alert("Please use safari to install DOTT!")
+}
+else if ( ua.indexOf( "safari" ) !=1 ) {
+
+} else{
+alert("Please use safari to install DOTT!")
+}
  </script>
 </head>
 <body>
