@@ -10,9 +10,8 @@
 <script>
 document.ontouchmove = function(e) {e.preventDefault()};
 $(document).ready(function(){
-    $.browser.safari = $.browser.webkit && !window.chrome;
-    if (!$.browser.safari){
-        alert("Please use safari to install DOTT!")
+	if( $.browser.safari ){
+		alert('Safari');
 	}
 });
 </script>
