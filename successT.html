@@ -9,13 +9,15 @@
 <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 <script>
 document.ontouchmove = function(e) {e.preventDefault()};
-var browser = navigator.userAgent;
-if (browser.toLowerCase().indexOf('safari') > 0){
-	
-}else{
-	alert("Please use safari to install DOTT!")
+var ua = navigator.userAgent.toLowerCase();
+if(ua.indexOf('chrome')  > -1){
+    alert("Please use safari to install DOTT!")
 }
+else if ( ua.indexOf( "safari" ) !=1 ) {
 
+} else{
+alert("Please use safari to install DOTT!")
+}
 
 </script>
 </head>
