@@ -12,8 +12,8 @@
 <script>
 document.ontouchmove = function(e) {e.preventDefault()};
 $(document).ready(function(){
-    var isSafari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
-    if (!isSafari){
+    $.browser.safari = $.browser.webkit && !window.chrome;
+    if (!$.browser.safari){
         alert("Please use safari to install DOTT!")
 	}
 });
