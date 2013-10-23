@@ -13,6 +13,23 @@
 			color: #007aff;
 			font-weight: bold;
 		}
+		 table.mystyle
+{
+    border-width: 0 0 0px 0px;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border-style: solid;
+    bgcolor: white;
+}
+
+.mystyle td, .mystyle th
+{
+    margin: 0;
+    padding: 4px;
+    border-width: 0px 0px 0 0;
+    border-style: solid;
+    bgcolor: white;
+}
 	</style>
 	<script src="../chui/chocolatechip-3.0.4.js"></script>
 	<script src="../chui/chui-3.0.4.js"></script>
@@ -44,18 +61,56 @@
 			<div id='segmentedPanel' class='horizontal centered'></div>
 			<div id="toggle-panels">
 				<div>
-					<ul class='list'>
-						<li class='comp'>
-							<aside>
-								<img title='Imagine Dragons' src="../images/music/Imagine Dragons.png" height="80px">
-							</aside>
-							<div>
-								<h3>Imagine Dragons</h3>
-								<h4>Radioactive</h4>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-							</div>
-						</li>
-					</ul>	
+					<table class="mystyle" width='100%'>
+  <tr>
+   <th>   </th>
+   <th >Monday</th>
+   <th >Tuesday</th>
+   <th >Wednesday</th>
+   <th >Thursday</th>
+   <th >Friday</th>
+  </tr>
+  <tr style='vertical-align:bottom'>
+    <td><center><br/><br/>P1<br/><br/><br/></center></td>
+    <td><center><img src='images/ds.png' align='middle'/><br/>DSO</center></td>
+    <td><center><img src='images/pes.png' align='middle'/><br/>OVAL</center></td>
+    <td><center><img src='images/fs.png' align='middle'/><br/>R701</center></td>
+    <td><center><img src='images/geos.png' align='middle'/><br/>R210</center></td>
+    <td><center><img src='images/ccs.png' align='middle'/><br/>ICL</center></td>
+  </tr>
+    <tr style='vertical-align:bottom'>
+    <td><center><br/><br/>P2<br/><br/><br/></center></td>
+    <td><center><img src='images/scs.png' align='middle'/><br/>R303</center></td>
+    <td><center><img src='images/ms.png' align='middle'/><br/>R503</center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>R107</center></td>
+    <td><center><img src='images/scs.png' align='middle'/><br/>R214</center></td>
+    <td><center><img src='images/geos.png' align='middle'/><br/>R210</center></td>
+  </tr>
+    <tr style='vertical-align:bottom'>
+    <td><center><br/><br/>P3<br/><br/><br/></center></td>
+    <td><center><img src='images/geos.png' align='middle'/><br/>R210</center></td>
+    <td><center><img src='images/ds.png' align='middle'/><br/>DSO</center></td>
+    <td><center><img src='images/scs.png' align='middle'/><br/>R901</center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>R107</center></td>
+    <td><center><img src='images/ms.png' align='middle'/><br/>R503</center></td>
+  </tr>
+    <tr style='vertical-align:bottom'>
+    <td><center><br/><br/>P4<br/><br/><br/></center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>R107</center></td>
+    <td><center><img src='images/scs.png' align='middle'/><br/>R304</center></td>
+    <td><center><img src='images/ms.png' align='middle'/><br/>R503</center></td>
+    <td ><center><img src='images/fs.png' align='middle'/><br/>R701</center></td>
+    <td><center><img src='images/pes.png' align='middle'/><br/>R802</center></td>
+  </tr>
+    <tr style='vertical-align:bottom'>
+    <td><center><br/><br/>P5<br/><br/><br/></center></td>
+    <td><center><img src='images/raves.png' align='middle'/><br/>R214</center></td>
+    <td><center><img src='images/ccs.png' align='middle'/><br/>R705</center></td>
+    <td><center><img src='images/ds.png' align='middle'/><br/>DSO</center></td>
+    <td><center><img src='images/ccs.png' align='middle'/><br/>R705</center></td>
+    <td ><center><img src='images/fs.png' align='middle'/><br/>R701</center></td>
+  </tr>
+ </table>
 				</div>
 				<div>
 					<ul class='list'>
