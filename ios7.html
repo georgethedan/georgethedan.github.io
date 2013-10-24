@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="mobile-web-app-capable" content="yes">
-	<meta name="msapplication-tap-highlight" content="no">
-	<title>Segmented Control</title>
-	<link rel="stylesheet" href="../chui/chui.ios-3.0.4.css">
-	<style>
-		#output {
-			color: #007aff;
-			font-weight: bold;
-		}
-		 table.mystyle
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="msapplication-tap-highlight" content="no">
+        <title>Segmented Control</title>
+        <link rel="stylesheet" href="../chui/chui.ios-3.0.4.css">
+        <style>
+                #output {
+                        color: #007aff;
+                        font-weight: bold;
+                }
+                 table.mystyle
 {
     border-width: 0 0 0px 0px;
     border-spacing: 0;
@@ -30,38 +30,38 @@
     border-style: solid;
     bgcolor: white;
 }
-	</style>
-	<script src="../chui/chocolatechip-3.0.4.js"></script>
-	<script src="../chui/chui-3.0.4.js"></script>
-	<script>
-		$(function() {
-			var segmentedOptions = {
-				id: 'mySegmented',
-				labels : ['Week A','Week B'],
-				selected: 0
-			};
-			var segmentedResponse = function(e) {
-				e.stopPropagation();
-				$('#output').find('h3 > span').html(($(this).index() + 1));
-			};
-			var newSegmented = $.UICreateSegmented(segmentedOptions);
-			$('#segmentedPanel').append(newSegmented);
-			$('.segmented').UISegmented({callback:segmentedResponse});
-			$('.segmented').UIPanelToggle('#toggle-panels',function(){$.noop;});
-			var selectedPanel = $('.segmented').find('.selected').index();
-		});
-	</script>
+        </style>
+        <script src="../chui/chocolatechip-3.0.4.js"></script>
+        <script src="../chui/chui-3.0.4.js"></script>
+        <script>
+                $(function() {
+                        var segmentedOptions = {
+                                id: 'mySegmented',
+                                labels : ['Week A','Week B'],
+                                selected: 0
+                        };
+                        var segmentedResponse = function(e) {
+                                e.stopPropagation();
+                                $('#output').find('h3 > span').html(($(this).index() + 1));
+                        };
+                        var newSegmented = $.UICreateSegmented(segmentedOptions);
+                        $('#segmentedPanel').append(newSegmented);
+                        $('.segmented').UISegmented({callback:segmentedResponse});
+                        $('.segmented').UIPanelToggle('#toggle-panels',function(){$.noop;});
+                        var selectedPanel = $('.segmented').find('.selected').index();
+                });
+        </script>
 </head>
 <body>
-	<nav>
-		<h1>Home</h1>
-	</nav>
-	<article id="main" class="current">
-		<section>
-			<div id='segmentedPanel' class='horizontal centered'></div>
-			<div id="toggle-panels">
-				<div>
-					<table class="mystyle" width='100%'>
+        <nav>
+                <h1>Home</h1>
+        </nav>
+        <article id="main" class="current">
+                <section>
+                        <div id='segmentedPanel' class='horizontal centered'></div>
+                        <div id="toggle-panels">
+                                <div>
+                                        <table class="mystyle" width='100%'>
   <tr>
    <th>   </th>
    <th >Monday</th>
@@ -111,23 +111,61 @@
     <td ><center><img src='images/fs.png' align='middle'/><br/>R701</center></td>
   </tr>
  </table>
-				</div>
-				<div>
-					<ul class='list'>
-						<li class='comp'>
-					<aside>
-						<img title='Hurry and Harm' src="../images/music/Hurry and Harm.png" height="80px">
-					</aside>
-					<div>
-						<h3>The Hurry and the Harm</h3>
-						<h4>Hurt</h4>
-							<p>Nam omnium facilis volumus at, eam noster reprehendunt mediocritatem at. Enim urbanitas reprimique quo no. Duo dico munere partem cu, tollit bonorum duo cu.</p>
-							</div>
-						</li>
-					</ul>	
-				</div>
-			</div>
-		</section>
-	</article>
+                                </div>
+                                <div>
+                                                <table class="mystyle" width='100%' onClick="location.replace('http://georgethedan.github.io/mobile/subjects-T')">
+  <tr>
+   <th>   </th>
+   <th >Monday</th>
+   <th >Tuesday</th>
+   <th >Wednesday</th>
+   <th >Thursday</th>
+   <th >Friday</th>
+  </tr>
+  <tr>
+    <td><center><br/><br/>P1<br/><br/><br/></center></td>
+    <td><center><img src='images/scs.png' align='middle'/><br/>R302</center></td>
+    <td><center><img src='images/ccs.png' align='middle'/><br/>R705</center></td>
+    <td><center><img src='images/ds.png' align='middle'/><br/>DSO</center></td>
+    <td><center><img src='images/ccs.png' align='middle'/><br/>R705</center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>R107</center></td>
+  </tr>
+    <tr>
+    <td><center><br/><br/>P2<br/><br/><br/></center></td>
+    <td ><center><img src='images/fs.png' align='middle'/><br/>R701</center></td>
+    <td><center><img src='images/ms.png' align='middle'/><br/>R503</center></td>
+    <td><center><img src='images/ccs.png' align='middle'/><br/>R705</center></td>
+    <td><center><img src='images/ds.png' align='middle'/><br/>DSO</center></td>
+    <td><center><img src='images/geos.png' align='middle'/><br/>R210</center></td>
+  </tr>
+    <tr>
+    <td><center><br/><br/>P3<br/><br/><br/></center></td>
+    <td><center><img src='images/ms.png' align='middle'/><br/>R503</center></td>
+    <td><center><img src='images/geos.png' align='middle'/><br/>R210</center></td>
+    <td><center><img src='images/pes.png' align='middle'/><br/>OVAL</center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>LIB</center></td>
+    <td><center><img src='images/ds.png' align='middle'/><br/>DSO</center></td>
+  </tr>
+    <tr>
+    <td><center><br/><br/>P4<br/><br/><br/></center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>R107</center></td>
+    <td><center><img src='images/englishs.png' align='middle'/><br/>R107</center></td>
+    <td ><center><img src='images/fs.png' align='middle'/><br/>ICL</center></td>
+    <td><center><img src='images/geos.png' align='middle'/><br/>R210</center></td>
+    <td><center><img src='images/raves.png' align='middle'/><br/>R214</center></td>
+  </tr>
+    <tr>
+    <td><center><br/><br/>P5<br/><br/><br/></center></td>
+    <td><center><img src='images/raves.png' align='middle'/><br/>R214</center></td>
+    <td><center><img src='images/scs.png' align='middle'/><br/>R305</center></td>
+    <td><center><img src='images/ms.png' align='middle'/><br/>R901</center></td>
+    <td><center><img src='images/pes.png' align='middle'/><br/>OVAL</center></td>
+    <td ><center><img src='images/fs.png' align='middle'/><br/>R701</center></td>
+  </tr>
+ </table>
+                                </div>
+                        </div>
+                </section>
+        </article>
 </body>
 </html>
