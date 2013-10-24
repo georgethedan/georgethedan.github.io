@@ -61,7 +61,7 @@
                         <div id='segmentedPanel' class='horizontal centered'></div>
                         <div id="toggle-panels">
                                 <div>
-                                        <table class="mystyle" width='100%'>
+<table class="mystyle" width='100%' data-goto='sub'>
   <tr>
    <th>   </th>
    <th >Monday</th>
@@ -112,11 +112,8 @@
   </tr>
  </table>
                                 </div>
-                                <div>
-                                                <table class="mystyle" width='100%' onClick="location.replace('http://georgethedan.github.io/mobile/subjects-T')">
-				</div>
 				<div>
-<table class="mystyle" width='100%' onClick="location.replace('http://georgethedan.github.io/mobile/subjects-T')">
+<table class="mystyle" width='100%' data-goto='sub'>
   <tr>
    <th>   </th>
    <th >Monday</th>
@@ -170,6 +167,45 @@
                         </div>
                 </section>
         </article>
+	<nav class='next'>
+		<a class='button back'>Home</a>
+		<h1>Subjects</h1>
+	</nav>
+	<article id="sub" class='next'>
+		<section>
+			<ul class='list'>
+				<li class='nav' data-goto>
+					<h3>Classic Civ's</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>Drama</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>English</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>French</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>Geography</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>Maths</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>PDHPE</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>RaVE</h3>
+				</li>
+				<li class='nav' data-goto>
+					<h3>Science</h3>
+				</li>
+			</ul>
+			<p id='fot'>You have completed 0% of Monday</p>
+		</section>
+	</article>
+
 				</div>
 			</div>
 		</section>
