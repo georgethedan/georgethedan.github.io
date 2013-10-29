@@ -383,6 +383,7 @@ nav > h1 + a.button {
    color: #7f7f7f;
    font-family: HelveticaNeue, Helvetica, sans-serif;
    -webkit-font-smoothing: antialiased;
+   font-size: 14px
 }
 .list ~ p {
    margin: 0 15px;
