@@ -52,12 +52,19 @@
 						$('#tosub').on('singletap', function() {
 							$.UIGoToArticle('#sub');
 						});
+						$('#tosub2').on('singletap', function() {
+							$.UIGoToArticle('#sub');
+						});
+						$('#toabout').on('singletap', function() {
+							$.UIGoToArticle('#about');
+						});
                 });
         </script>
 </head>
 <body>
         <nav>
                 <h1>Home</h1>
+				<a class='button' id='toabout'>About</a>
         </nav>
         <article id="main" class="current">
                 <section>
@@ -116,7 +123,7 @@
  </table>
                                 </div>
 				<div>
-<table class="mystyle" width='100%' id='tosub'>
+<table class="mystyle" width='100%' id='tosub2'>
   <tr>
    <th>   </th>
    <th >Monday</th>
@@ -205,10 +212,19 @@
 					<h3>Science</h3>
 				</li>
 			</ul>
-			<p id='fot'>You have completed 0% of Monday</p>
 		</section>
 	</article>
-
+	<nav class='next'>
+		<a class='button back'>Home</a>
+		<h1>About</h1>
+	</nav>
+	<article id="sub" class='next'>
+		<section>
+			<ul class='list'>
+			</ul>
+			<p>This is a test p</p>
+		</section>
+	</article>
 				</div>
 			</div>
 		</section>
