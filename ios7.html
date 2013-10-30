@@ -65,8 +65,6 @@
 </head>
 <body onload='brython()'>
 <script type="text/python">
-    f = open('test.txt')
-	f.write('Test123')
 </script>
         <nav>
                 <h1>Home</h1>
@@ -249,7 +247,7 @@
 	<article id="cc" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='ccA'>
 					<h3>Assignments</h3>
 				</li>
 				<li class='nav' data-goto>
@@ -485,6 +483,22 @@
 </div>
 		</section>
 	</article>
+	<nav class='next'>
+		<a class='button back'>Classic Civ's</a>
+		<h1>Assignments</h1>
+	</nav>
+	<article id='ccA' class='next'>
+	<section>
+		<h2>Task</h2>
+		<ul class='list'>
+		<li>Assignment 1</li>
+		</ul>
+		<h2>Add a Task</h2>
+		<ul class='list'>
+		<li>
+		<input autocorrect="off" autocapitalize="words" type="text" id="first_name" placeholder="First Name" required="">
+		</li>
+		</ul>
 				</div>
 			</div>
 		</section>
