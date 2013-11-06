@@ -75,8 +75,7 @@ ccaAdd = function(){
 ccaRemove = function() {
 	ccat.splice(ccatSelected ,1);
 	ccaRefresh();	
-}
-
+};
 ccaRefresh = function(){
 	var $tasks = $('#tlcca'), i;
     // Clear the existing task list
@@ -91,7 +90,7 @@ ccaRefresh = function(){
     // Use jQuery Mobile's listview method to refresh
     $tasks.listview('refresh');
     localStorage.ccatList = JSON.stringify(ccat || []);
-}
+};
 
 $(document).delegate('#ccA','pageinit', function() {
     // Initialize the not to do list to an empty list
