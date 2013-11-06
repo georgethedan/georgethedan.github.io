@@ -59,7 +59,55 @@
 							$.UIGoToArticle('#about');
 						});
                 });
-				document.getElementById("p1").style.display="none";
+				var ccat = []
+
+ccaAdd = function(){
+	var task = document.getElementById('task').value;
+    if (task) {
+        // Add the task to array and refresh list
+        ccat[ccSA.list.length] = task;
+        ccaRefresh();
+        // Clear the input
+        document.getElementById('task').value = '';
+    }
+};
+
+ccaRemove = function() {
+	ccat.splice(ccatSelected ,1);
+	ccaRefresh();	
+}
+
+ccaRefresh = function(){
+	var $tasks = $('#tlcca'), i;
+    // Clear the existing task list
+    $tasks.empty();
+    if (ccat.length) {
+        for (var i=0;i<ccat.length;i++){
+            // Append each task
+            var li = '<li id="confirm" data-gotoc class="'+i+'">' + ccat[i] + '</li>'
+            $tasks.append(li);
+        }
+    }
+    // Use jQuery Mobile's listview method to refresh
+    $tasks.listview('refresh');
+    localStorage.ccatList = JSON.stringify(ccat || []);
+}
+
+$(document).delegate('#ccA','pageinit', function() {
+    // Initialize the not to do list to an empty list
+// If no list is already present, initialize it
+if (!localStorage.ccatList) {
+    localStorage.ccatList = "[]";
+}
+// Load the list by parsing the JSON from localStorage
+ccSA.list = JSON.parse(localStorage.ccatList);
+    $('#ccaAdd').bind('vclick', ccaAdd);
+    $('#confirm').bind('vclick', function() {
+        ccatSelected = this.classname;
+    });
+    // Refresh the list everytime the page is reloaded
+    $('#ccA').bind('pagebeforeshow', ccaRefresh);
+});
         </script>
 </head>
 <body onload=''>
@@ -486,16 +534,15 @@
 	</nav>
 	<article id='ccA' class='next'>
 	<section>
-		<h2>Task</h2>
-		<ul class='list'>
-		<li data-goto>Assignment 1</li>
+		<h2>Tasks</h2>
+		<ul class='list' id='tlcca'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
 		<input autocorrect="off" autocapitalize="words" type="text" id="task" placeholder="Task Name" required="">
 		</li>
-		<li data-goto>Add task</li>
+		<li data-goto id='add'>Add task</li>
 		</ul>
 				</div>
 			</div>
