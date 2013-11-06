@@ -59,6 +59,50 @@
 							$.UIGoToArticle('#about');
 						});
                 });
+				var ccat = []
+ccaAdd = function(){
+	var task = document.getElementById('task').value;
+    if (task) {
+        // Add the task to array and refresh list
+        ccat[ccat.length] = task;
+        ccaRefresh();
+        // Clear the input
+        document.getElementById('task').value = '';
+    }
+};
+
+ccaRemove = function() {
+	ccat.splice(chosen ,1);
+	ccaRefresh();	
+}
+
+ccaRefresh = function(){
+	var $tasks = $('#tlcca');
+    // Clear the existing task list
+    $tasks.empty();
+    if (ccat.length) {
+        for (var i=0;i<ccat.length;i++){
+            // Append each task
+            var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'">' + ccat[i] + '</li>'
+            $tasks.append(li);
+        }
+    }
+    // Use jQuery Mobile's listview method to refresh
+    $tasks.listview('refresh');
+    localStorage.ccatList = JSON.stringify(ccat || []);
+}
+
+$(document).delegate('#ccA','pageinit', function() {
+    // Initialize the not to do list to an empty list
+// If no list is already present, initialize it
+if (!localStorage.ccatList) {
+    localStorage.ccatList = "[]";
+}
+// Load the list by parsing the JSON from localStorage
+ccSA.list = JSON.parse(localStorage.ccatList);
+    // Refresh the list everytime the page is reloaded
+    $('#ccA').bind('pagebeforeshow', ccaRefresh);
+});
         </script>
 </head>
 <body onload=''>
@@ -494,7 +538,7 @@
 		<li>
 		<input autocorrect="off" autocapitalize="words" type="text" id="task" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto>Add task</li>
+		<li class='nav' data-goto id='add'>Add task</li>
 		</ul>
 				</div>
 			</div>
