@@ -62,7 +62,7 @@
 				var ccat = []
 ccaAdd = function(){
 	var task = document.getElementById('task').value;
-    if (task) {
+    if (task != '') {
         // Add the task to array and refresh list
         ccat[ccat.length] = task;
         ccaRefresh();
