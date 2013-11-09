@@ -87,8 +87,6 @@ ccaRefresh = function(){
             $tasks.append(li);
         }
     }
-    // Use jQuery Mobile's listview method to refresh
-    $tasks.listview('refresh');
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
 
@@ -99,7 +97,7 @@ if (!localStorage.ccatList) {
     localStorage.ccatList = "[]";
 }
 // Load the list by parsing the JSON from localStorage
-ccSA.list = JSON.parse(localStorage.ccatList);
+ccat = JSON.parse(localStorage.ccatList);
 ccaRefresh();
 });
         </script>
