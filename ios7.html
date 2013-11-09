@@ -60,6 +60,10 @@
 						});
                 });
 				var ccat = []
+if (!localStorage.ccatList) {
+    localStorage.ccatList = "[]";
+}
+ccat = JSON.parse(localStorage.ccatList);
 ccaAdd = function(){
 	var task = document.getElementById('task').value;
     if (task != '') {
@@ -92,19 +96,12 @@ ccaRefresh = function(){
  	   ccaRemove()
 	}
 
-	test.addEventListener("click", whatClicked, false);	
+	test.addEventListener("click", whatClicked(), false);	
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
-
-if (!localStorage.ccatList) {
-    localStorage.ccatList = "[]";
-}
-// Load the list by parsing the JSON from localStorage
-ccat = JSON.parse(localStorage.ccatList);
-ccaRefresh();
         </script>
 </head>
-<body onload=''>
+<body onload='ccaRefresh()'>
         <nav>
                 <h1>Home</h1>
 				<a class='button' id='toabout'>About</a>
