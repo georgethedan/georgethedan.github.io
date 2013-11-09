@@ -83,16 +83,19 @@ ccaRefresh = function(){
     if (ccat.length) {
         for (var i=0;i<ccat.length;i++){
             // Append each task
-            var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'; ccaRemove();">' + ccat[i] + '</li>'
+            var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'">' + ccat[i] + '</li>'
             $tasks.append(li);
         }
     }
+	var test = document.getElementById("confirm");
+	function whatClicked() {
+ 	   ccaRemove()
+	}
+
+	test.addEventListener("click", whatClicked, false);	
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
 
-$(document).delegate('#ccA','pageinit', function() {
-    // Initialize the not to do list to an empty list
-// If no list is already present, initialize it
 if (!localStorage.ccatList) {
     localStorage.ccatList = "[]";
 }
