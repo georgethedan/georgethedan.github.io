@@ -83,7 +83,7 @@ ccaRefresh = function(){
     if (ccat.length) {
         for (var i=0;i<ccat.length;i++){
             // Append each task
-            var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'">' + ccat[i] + '</li>'
+            var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'; ccaRemove();">' + ccat[i] + '</li>'
             $tasks.append(li);
         }
     }
@@ -100,8 +100,7 @@ if (!localStorage.ccatList) {
 }
 // Load the list by parsing the JSON from localStorage
 ccSA.list = JSON.parse(localStorage.ccatList);
-    // Refresh the list everytime the page is reloaded
-    $('#ccA').bind('pagebeforeshow', ccaRefresh);
+ccaRefresh();
 });
         </script>
 </head>
@@ -531,14 +530,13 @@ ccSA.list = JSON.parse(localStorage.ccatList);
 	<section>
 		<h2>Tasks</h2>
 		<ul class='list' id='tlcca'>
-		<li class='nav' data-goto>Assignment 1</li>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
 		<input autocorrect="off" autocapitalize="words" type="text" id="task" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto id='add'>Add task</li>
+		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
 		</ul>
 				</div>
 			</div>
