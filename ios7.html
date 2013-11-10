@@ -90,13 +90,7 @@ ccaRefresh = function(){
             var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'">' + ccat[i] + '</li>'
             $tasks.append(li);
         }
-    }
-	var test = document.getElementById("confirm");
-	function whatClicked() {
- 	   ccaRemove()
-	}
-
-	test.addEventListener("click", whatClicked(), false);	
+    }	
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
         </script>
