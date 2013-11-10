@@ -75,7 +75,7 @@ ccaAdd = function(){
     }
 };
 
-ccaRemove = function() {
+ccaRemove = function(chosen) {
 	ccat.splice(chosen ,1);
 	ccaRefresh();	
 }
@@ -98,7 +98,7 @@ ccaRefresh = function(){
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
-						ccaRemove()
+						ccaRemove(i)
 					}
 				});
 			});
