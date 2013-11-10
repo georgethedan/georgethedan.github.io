@@ -75,10 +75,6 @@ ccaAdd = function(){
     }
 };
 
-ccaRemove = function(chosen) {
-	ccat.splice(chosen ,1);
-	ccaRefresh();	
-}
 
 ccaRefresh = function(){
 	var $tasks = $('#tlcca');
@@ -89,7 +85,6 @@ ccaRefresh = function(){
             // Append each task
             var li = '<li class="nav" id="confirm'+i+'" data-goto>' + ccat[i] + '</li>'
             $tasks.append(li);
-			$(function() {
 			$("#confirm"+i).bind("singletap", function() {
 				$.UIPopup({
 					id: "warning",
@@ -98,11 +93,11 @@ ccaRefresh = function(){
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
-						ccaRemove(i)
+						ccat.splice(chosen,i);
+						ccaRefresh();
 					}
 				});
 			});
-		});
         }
     }
     localStorage.ccatList = JSON.stringify(ccat || []);
