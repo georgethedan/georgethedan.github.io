@@ -90,7 +90,21 @@ ccaRefresh = function(){
             var li = '<li id="confirm" data-goto onclick="var chosen = '+i+'">' + ccat[i] + '</li>'
             $tasks.append(li);
         }
-    }	
+    }
+	$(function() {
+		$("#confirm").bind("singletap", function() {
+				$.UIPopup({
+					id: "warning",
+					title: 'Completed?', 
+					message: 'Have you really completed this task?', 
+					cancelButton: 'No', 
+					continueButton: 'Yes', 
+					callback: function() {
+						ccaRemove()
+					}
+				});
+			});
+		});
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
         </script>
