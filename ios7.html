@@ -93,7 +93,7 @@ ccaRefresh = function(){
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
-						ccat.splice(chosen,i);
+						ccat.splice(i,1);
 						ccaRefresh();
 					}
 				});
