@@ -87,7 +87,7 @@ ccaRefresh = function(){
     if (ccat.length) {
         for (var i=0;i<ccat.length;i++){
             // Append each task
-            var li = '<li class="nav" id="confirm"'+i+' data-goto>' + ccat[i] + '</li>'
+            var li = '<li class="nav" id="confirm'+i+'" data-goto>' + ccat[i] + '</li>'
             $tasks.append(li);
 			$(function() {
 			$("#confirm"+i).bind("singletap", function() {
