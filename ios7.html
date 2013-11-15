@@ -5,6 +5,7 @@
 		<link rel="apple-touch-icon" href="icon152.png" sizes="152x152">
 		<link rel="apple-touch-icon" href="icon120.png" sizes="120x120">
 		<link rel="apple-touch-icon" href="icon76.png" sizes="76x76">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black"/>
         <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
@@ -33,12 +34,6 @@
         <script src="../chui/chocolatechip-3.0.4.js"></script>
         <script src="../chui/chui-3.0.4.js"></script>
         <script>
-function onDeviceReady() {
-        if (parseFloat(window.device.version) >= 7.0) {
-          document.body.style.marginTop = "20px";
-
-}
-}
                 $(function() {
                         var segmentedOptions = {
                                 id: 'mySegmented',
@@ -95,11 +90,11 @@ ccaRefresh = function(){
 				$.UIPopup({
 					id: "warning",
 					title: 'Completed?', 
-					message: 'Have you really completed this task?'+i, 
+					message: 'Have you really completed this task?'+(i-1), 
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
-						ccat.splice(i,1);
+						ccat.splice(i-1,1);
 						ccaRefresh();
 					}
 				});
@@ -109,7 +104,6 @@ ccaRefresh = function(){
     }
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
-document.addEventListener('deviceready', onDeviceReady, false);
         </script>
 </head>
 <body onload='ccaRefresh()'>
