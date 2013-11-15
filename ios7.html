@@ -83,7 +83,7 @@ ccaRefresh = function(){
     if (ccat.length) {
         for (var i=0;i<ccat.length;i++){
             // Append each task
-            var li = '<li class="nav" id="confirm'+i+'" data-goto>' + ccat[i] + '</li>'
+            var li = '<li class="nav" id="confirm'+i+'" data-goto onclick="x = "'+i'">' + ccat[i] + '</li>'
             $tasks.append(li);
 			$(function () {
 			$("#confirm"+i).bind("singletap", function() {
@@ -94,7 +94,7 @@ ccaRefresh = function(){
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
-						ccat.splice(i-1,1);
+						ccat.splice(x,1);
 						ccaRefresh();
 					}
 				});
@@ -104,6 +104,7 @@ ccaRefresh = function(){
     }
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
+var x = 0;
         </script>
 </head>
 <body onload='ccaRefresh()'>
