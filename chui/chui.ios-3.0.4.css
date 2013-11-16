@@ -254,7 +254,7 @@ article > section,
    overflow: hidden;
 }
 nav {
-   height: 45px;
+   height: 65px;
    box-sizing: border-box;
    /* new flex box */
    display: -webkit-flex;
