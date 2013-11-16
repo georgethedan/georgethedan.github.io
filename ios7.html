@@ -83,7 +83,7 @@ ccaRefresh = function(){
         for (var i=0;i<ccat.length;i++){
             // Append each task
 			x = i;
-            var li = '<li class="nav" id="confirm'+i+'" data-goto onclick="x = '+i'">' + ccat[i] + '</li>'
+            var li = '<li class="nav" id="confirm'+i+'" data-goto onclick="x = '+i+'">' + ccat[i] + '</li>'
             $tasks.append(li);
 			$(function () {
 			$("#confirm"+i).bind("singletap", function() {
@@ -104,11 +104,11 @@ ccaRefresh = function(){
     }
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
-//function onDeviceReady() {
-  //  if (parseFloat(window.device.version) >= 7.0) {
-    //      document.body.style.marginTop = "20px";
-    //}
-//}
+function onDeviceReady() {
+  if (parseFloat(window.device.version) >= 7.0) {
+      document.body.style.marginTop = "20px";
+}
+}
 document.addEventListener('deviceready', onDeviceReady, false);
         </script>
 </head>
