@@ -5,13 +5,13 @@ if (!localStorage.ccptList) {
 }
 ccpt = JSON.parse(localStorage.ccptList);
 ccpAdd = function(){
-	var task = document.getElementById('task').value;
+	var task = document.getElementById('taskccp').value;
     if (task != '') {
         // Add the task to array and refresh list
         ccpt[ccpt.length] = task;
         ccpRefresh();
         // Clear the input
-        document.getElementById('task').value = '';
+        document.getElementById('taskccp').value = '';
     }
 };
 ccpRefresh = function(){

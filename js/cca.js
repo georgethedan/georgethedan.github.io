@@ -5,13 +5,13 @@ if (!localStorage.ccatList) {
 }
 ccat = JSON.parse(localStorage.ccatList);
 ccaAdd = function(){
-	var task = document.getElementById('task').value;
+	var task = document.getElementById('taskcca').value;
     if (task != '') {
         // Add the task to array and refresh list
         ccat[ccat.length] = task;
         ccaRefresh();
         // Clear the input
-        document.getElementById('task').value = '';
+        document.getElementById('taskcca').value = '';
     }
 };
 ccaRefresh = function(){
