@@ -90,7 +90,7 @@ ccaRefresh = function(){
 				$.UIPopup({
 					id: "warning",
 					title: 'Completed?', 
-					message: 'Have you really completed this task?'+(i-1), 
+					message: 'Have you really completed this task?', 
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
@@ -110,6 +110,11 @@ function onDeviceReady() {
 }
 }
 document.addEventListener('deviceready', onDeviceReady, false);
+$(document).keypress(function(e){
+    if (e.which == 13){
+        ccaAdd();
+    }
+});
         </script>
 </head>
 <body onload='ccaRefresh()' style="background-color:#efeff4;">
