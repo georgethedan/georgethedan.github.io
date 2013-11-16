@@ -34,6 +34,8 @@
         <script src="../chui/chocolatechip-3.0.4.js"></script>
         <script src="../chui/chui-3.0.4.js"></script>
 		<script src="/js/cca.js"></script>
+		<script src="/js/ccp.js"></script>
+		<script src="/js/ccr.js"></script>
         <script>
                 $(function() {
                         var segmentedOptions = {
@@ -60,9 +62,14 @@
 							$.UIGoToArticle('#about');
 						});
                 });
+			subRefresh = function(){
+				ccaRefresh()
+				ccpRefresh()
+				ccrRefresh()
+			}
         </script>
 </head>
-<body onload='ccaRefresh()' style="background-color:#efeff4;">
+<body onload='subRefresh()' style="background-color:#efeff4;">
         <nav>
                 <h1>Home</h1>
 				<a class='button' id='toabout'>About</a>
@@ -247,10 +254,10 @@
 				<li class='nav' data-goto='ccA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='ccP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='ccR'>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -481,7 +488,7 @@
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>Classic Civ's</a>
+		<a class='button back'>CC</a>
 		<h1>Assignments</h1>
 	</nav>
 	<article id='ccA' class='next'>
@@ -496,8 +503,42 @@
 		</li>
 		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
 		</ul>
-				</div>
-			</div>
+		</section>
+	</article>
+	<nav class='next'>
+		<a class='button back'>CC</a>
+		<h1>Prep</h1>
+	</nav>
+	<article id='ccP' class='next'>
+	<section>
+		<h2>Tasks</h2>
+		<ul class='list' id='tlccp'>
+		</ul>
+		<h2>Add a Task</h2>
+		<ul class='list'>
+		<li>
+		<input autocorrect="off" autocapitalize="words" type="text" id="task" placeholder="Task Name" required="">
+		</li>
+		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		</ul>
+		</section>
+	</article>
+	<nav class='next'>
+		<a class='button back'>CC</a>
+		<h1>Reminders</h1>
+	</nav>
+	<article id='ccR' class='next'>
+	<section>
+		<h2>Tasks</h2>
+		<ul class='list' id='tlccr'>
+		</ul>
+		<h2>Add a Task</h2>
+		<ul class='list'>
+		<li>
+		<input autocorrect="off" autocapitalize="words" type="text" id="task" placeholder="Task Name" required="">
+		</li>
+		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		</ul>
 		</section>
 	</article>
 </body>

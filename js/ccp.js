@@ -1,31 +1,31 @@
 var x = 0;
-var ccat = []
-if (!localStorage.ccatList) {
-    localStorage.ccatList = "[]";
+var ccpt = []
+if (!localStorage.ccptList) {
+    localStorage.ccptList = "[]";
 }
-ccat = JSON.parse(localStorage.ccatList);
-ccaAdd = function(){
+ccpt = JSON.parse(localStorage.ccptList);
+ccpAdd = function(){
 	var task = document.getElementById('task').value;
     if (task != '') {
         // Add the task to array and refresh list
-        ccat[ccat.length] = task;
-        ccaRefresh();
+        ccpt[ccpt.length] = task;
+        ccpRefresh();
         // Clear the input
         document.getElementById('task').value = '';
     }
 };
-ccaRefresh = function(){
-	var $tasks = $('#tlcca');
+ccpRefresh = function(){
+	var $tasks = $('#tlccp');
     // Clear the existing task list
     $tasks.empty();
-    if (ccat.length) {
-        for (var i=0;i<ccat.length;i++){
+    if (ccpt.length) {
+        for (var i=0;i<ccpt.length;i++){
             // Append each task
 			x = i;
-            var li = '<li class="nav" id="confirmcca'+i+'" data-goto onclick="x = '+i+'">' + ccat[i] + '</li>'
+            var li = '<li class="nav" id="confirmccp'+i+'" data-goto onclick="x = '+i+'">' + ccpt[i] + '</li>'
             $tasks.append(li);
 			$(function () {
-			$("#confirmcca"+i).bind("singletap", function() {
+			$("#confirmccp"+i).bind("singletap", function() {
 				$.UIPopup({
 					id: "warning",
 					title: 'Completed?', 
@@ -33,18 +33,18 @@ ccaRefresh = function(){
 					cancelButton: 'No', 
 					continueButton: 'Yes', 
 					callback: function() {
-						ccat.splice(x,1);
-						ccaRefresh();
+						ccpt.splice(x,1);
+						ccpRefresh();
 					}
 				});
 			});
 			});
         }
     }
-    localStorage.ccatList = JSON.stringify(ccat || []);
+    localStorage.ccptList = JSON.stringify(ccpt || []);
 }
 $(document).keypress(function(e){
     if (e.which == 13){
-        ccaAdd();
+        ccpAdd();
     }
 });
