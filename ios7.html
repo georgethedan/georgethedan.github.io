@@ -59,6 +59,7 @@
 							$.UIGoToArticle('#about');
 						});
                 });
+				var x = 0;
 				var ccat = []
 if (!localStorage.ccatList) {
     localStorage.ccatList = "[]";
@@ -74,8 +75,6 @@ ccaAdd = function(){
         document.getElementById('task').value = '';
     }
 };
-
-
 ccaRefresh = function(){
 	var $tasks = $('#tlcca');
     // Clear the existing task list
@@ -83,6 +82,7 @@ ccaRefresh = function(){
     if (ccat.length) {
         for (var i=0;i<ccat.length;i++){
             // Append each task
+			x = i;
             var li = '<li class="nav" id="confirm'+i+'" data-goto onclick="x = '+i'">' + ccat[i] + '</li>'
             $tasks.append(li);
 			$(function () {
@@ -104,7 +104,6 @@ ccaRefresh = function(){
     }
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
-var x = 0;
         </script>
 </head>
 <body onload='ccaRefresh()' style="background-color:#efeff4;">
