@@ -297,7 +297,7 @@ nav > h1 + a.button {
    margin: 0;
    position: absolute;
    right: 15px;
-   top: 23px;
+   top: 3px;
 }
 @media only screen and (max-device-width : 320px) and (orientation : portrait) {
    nav > a.button + h1 {
