@@ -73,7 +73,7 @@ h6, caption, figcaption, small, .type-xx-small {
    ============================== */
 article {
    position: absolute;
-   top: 45px; right: 0;
+   top: 65px; right: 0;
    bottom: 0; left: 0;
    -webkit-transition: all .15s ease-out;
    transition: all .15s ease-out;
@@ -254,7 +254,7 @@ article > section,
    overflow: hidden;
 }
 nav {
-   height: 45px;
+   height: 65px;
    box-sizing: border-box;
    /* new flex box */
    display: -webkit-flex;
