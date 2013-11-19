@@ -281,7 +281,7 @@ nav > h1 {
    -webkit-box-flex: 1;
    font: normal 12pt/14pt HelveticaNeue, Sans-serif;
    position: absolute;
-   top: 20;
+   top: 0;
    left: 100px;
    right: 100px;
    z-index: -1;
@@ -749,7 +749,7 @@ a.button.back, a.button.backTo {
    text-overflow: ellipsis;
    display: inline-block !important;
    height: 30px;
-   margin-top: 8px;
+   margin-top: -20px;
 }
 .isiOS a.button.back, .isiOS a.button.backTo {
 	display: -webkit-box;
