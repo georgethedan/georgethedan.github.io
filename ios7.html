@@ -10,8 +10,21 @@
         <meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="mobile-web-app-capable" content="yes">
 		<meta name="msapplication-tap-highlight" content="no">
+		<meta name="apple-mobile-web-app-title" content="DOTT">
         <title>DOTT</title>
         <link rel="stylesheet" href="../chui/chui.ios-3.0.4.css">
+		<!-- iPad, retina, portrait -->
+<link href="startup@2x.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: portrait)
+         and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image">
+<!-- iPad, retina, landscape -->
+<link href="startup@2xL.png"
+      media="(device-width: 768px) and (device-height: 1024px)
+         and (orientation: landscape)
+         and (-webkit-device-pixel-ratio: 2)"
+      rel="apple-touch-startup-image">
         <style>
                  table.mystyle
 {
@@ -30,12 +43,6 @@
     border-style: solid;
     bgcolor: white;
 }
-#stuff {
-    height:20px;
-    width:100%;
-	color:#efeff4;
-    display: inline-block;
-}
 body {
   background-color: white; /* for the tint */
   background-image: linear-gradient(to bottom, #efeff4 0%, #efeff4 100%); /* for the body */
@@ -52,6 +59,24 @@ body {
 		<script src="/js/ena.js"></script>
 		<script src="/js/enp.js"></script>
 		<script src="/js/enr.js"></script>
+		<script src="/js/fra.js"></script>
+		<script src="/js/frp.js"></script>
+		<script src="/js/frr.js"></script>
+		<script src="/js/gea.js"></script>
+		<script src="/js/gep.js"></script>
+		<script src="/js/geo.js"></script>
+		<script src="/js/mma.js"></script>
+		<script src="/js/mmp.js"></script>
+		<script src="/js/mmr.js"></script>
+		<script src="/js/pea.js"></script>
+		<script src="/js/pep.js"></script>
+		<script src="/js/per.js"></script>
+		<script src="/js/rva.js"></script>
+		<script src="/js/rvp.js"></script>
+		<script src="/js/rvr.js"></script>
+		<script src="/js/sea.js"></script>
+		<script src="/js/sep.js"></script>
+		<script src="/js/ser.js"></script>
         <script>
 				$(function() {
                         var segmentedOptions = {
@@ -77,6 +102,9 @@ body {
 						$('#toabout').on('singletap', function() {
 							$.UIGoToArticle('#about');
 						});
+						$('#tosettings').on('singletap', function() {
+							$.UIGoToArticle('#settings');
+						});
                 });
 			subRefresh = function(){
 				ccaRefresh()
@@ -86,8 +114,8 @@ body {
         </script>
 </head>
 <body onload='subRefresh()'>
-<div id='stuff'></div>
-        <nav>
+        <nav id='stuff'>
+				<a class='button' id='tosettings'>Settings</a>
                 <h1>Home</h1>
 				<a class='button' id='toabout'>About</a>
         </nav>
@@ -262,6 +290,22 @@ body {
 		</section>
 	</article>
 	<nav class='next'>
+		<a class='button back'>Home</a>
+		<h1>Settings</h1>
+	</nav>
+	<article id="settings" class='next'>
+		<section>
+			<ul class='list'>
+				<li class='nav'>
+					<h3>Change the timetable!</h3>
+				</li>
+				<li>
+					<h3>Version of DOTT: 2.0</h3>
+				</li>
+			</ul>
+		</section>
+	</article>
+	<nav class='next'>
 		<a class='button back'>Subjects</a>
 		<h1>Classic Civ's</h1>
 	</nav>
@@ -349,13 +393,13 @@ body {
 	<article id="fh" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='frA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='frP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='frR>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -376,13 +420,13 @@ body {
 	<article id="ge" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='geA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='geP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='geR'>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -403,13 +447,13 @@ body {
 	<article id="mm" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='mmA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='mmP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='mmR'>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -430,13 +474,13 @@ body {
 	<article id="pe" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='peA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='peP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='peR'>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -457,13 +501,13 @@ body {
 	<article id="rv" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='rvA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='rvP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='rvR'>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -484,13 +528,13 @@ body {
 	<article id="se" class='next'>
 		<section>
 			<ul class='list'>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='seA'>
 					<h3>Assignments</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='seP'>
 					<h3>Prep</h3>
 				</li>
-				<li class='nav' data-goto>
+				<li class='nav' data-goto='seR'>
 					<h3>Reminders</h3>
 				</li>
 			</ul>
@@ -671,331 +715,331 @@ body {
 	</article>
 		<!-- French -->
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>French</a>
 		<h1>Assignments</h1>
 	</nav>
-	<article id='ccA' class='next'>
+	<article id='frA' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlcca'>
+		<ul class='list' id='tlfra'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskcca" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskfra" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='fraAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>French</a>
 		<h1>Prep</h1>
 	</nav>
-	<article id='ccP' class='next'>
+	<article id='frP' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccp'>
+		<ul class='list' id='tlfrp'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccp" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskfrp" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='frpAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>French</a>
 		<h1>Reminders</h1>
 	</nav>
-	<article id='ccR' class='next'>
+	<article id='frR' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccr'>
+		<ul class='list' id='tlfrr'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccr" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskfrr" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='frrAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
-		<!-- Classic Civ's -->
+		<!-- Geography -->
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Geography</a>
 		<h1>Assignments</h1>
 	</nav>
-	<article id='ccA' class='next'>
+	<article id='geA' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlcca'>
+		<ul class='list' id='tlgea'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskcca" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskgea" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='geaAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Geography</a>
 		<h1>Prep</h1>
 	</nav>
-	<article id='ccP' class='next'>
+	<article id='geP' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccp'>
+		<ul class='list' id='tlgep'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccp" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskgep" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='gepAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Geography</a>
 		<h1>Reminders</h1>
 	</nav>
-	<article id='ccR' class='next'>
+	<article id='geR' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccr'>
+		<ul class='list' id='tlger'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccr" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskger" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='gerAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
-		<!-- Classic Civ's -->
+		<!-- Maths -->
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Maths</a>
 		<h1>Assignments</h1>
 	</nav>
-	<article id='ccA' class='next'>
+	<article id='mmA' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlcca'>
+		<ul class='list' id='tlmma'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskcca" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskmma" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='mmaAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Maths</a>
 		<h1>Prep</h1>
 	</nav>
-	<article id='ccP' class='next'>
+	<article id='mmP' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccp'>
+		<ul class='list' id='tlmmp'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccp" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskmmp" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='mmpAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Maths</a>
 		<h1>Reminders</h1>
 	</nav>
-	<article id='ccR' class='next'>
+	<article id='mmR' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccr'>
+		<ul class='list' id='tlmmr'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccr" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskmmr" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='mmrAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
-		<!-- Classic Civ's -->
+		<!-- PDHPE -->
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>PDHPE</a>
 		<h1>Assignments</h1>
 	</nav>
-	<article id='ccA' class='next'>
+	<article id='peA' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlcca'>
+		<ul class='list' id='tlpea'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskcca" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskpea" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='peaAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>PDHPE</a>
 		<h1>Prep</h1>
 	</nav>
-	<article id='ccP' class='next'>
+	<article id='peP' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccp'>
+		<ul class='list' id='tlpep'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccp" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskpep" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='pepAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>PDHPE</a>
 		<h1>Reminders</h1>
 	</nav>
-	<article id='ccR' class='next'>
+	<article id='peR' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccr'>
+		<ul class='list' id='tlper'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccr" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskper" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='perAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
-		<!-- Classic Civ's -->
+		<!-- RaVE -->
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>RaVE</a>
 		<h1>Assignments</h1>
 	</nav>
-	<article id='ccA' class='next'>
+	<article id='rvA' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlcca'>
+		<ul class='list' id='tlrva'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskcca" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskrva" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='rvaAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>RaVE</a>
 		<h1>Prep</h1>
 	</nav>
-	<article id='ccP' class='next'>
+	<article id='rvP' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccp'>
+		<ul class='list' id='tlrvp'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccp" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskrvp" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='rvpAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>RaVE</a>
 		<h1>Reminders</h1>
 	</nav>
-	<article id='ccR' class='next'>
+	<article id='rvR' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccr'>
+		<ul class='list' id='tlrvr'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccr" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskrvr" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='rvrAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
-		<!-- Classic Civ's -->
+		<!-- Science -->
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Science</a>
 		<h1>Assignments</h1>
 	</nav>
-	<article id='ccA' class='next'>
+	<article id='seA' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlcca'>
+		<ul class='list' id='tlsea'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskcca" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="tasksea" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccaAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='seaAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Science</a>
 		<h1>Prep</h1>
 	</nav>
-	<article id='ccP' class='next'>
+	<article id='seP' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccp'>
+		<ul class='list' id='tlsep'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccp" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="tasksep" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccpAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='sepAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
 	<nav class='next'>
-		<a class='button back'>CC</a>
+		<a class='button back'>Science</a>
 		<h1>Reminders</h1>
 	</nav>
-	<article id='ccR' class='next'>
+	<article id='seR' class='next'>
 	<section>
 		<h2>Tasks</h2>
-		<ul class='list' id='tlccr'>
+		<ul class='list' id='tlser'>
 		</ul>
 		<h2>Add a Task</h2>
 		<ul class='list'>
 		<li>
-		<input autocorrect="off" autocapitalize="words" type="text" id="taskccr" placeholder="Task Name" required="">
+		<input autocorrect="off" autocapitalize="words" type="text" id="taskser" placeholder="Task Name" required="">
 		</li>
-		<li class='nav' data-goto onClick='ccrAdd()'>Add task</li>
+		<li class='nav' data-goto onClick='serAdd()'>Add task</li>
 		</ul>
 		</section>
 	</article>
