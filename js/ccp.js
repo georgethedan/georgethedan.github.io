@@ -43,8 +43,3 @@ ccpRefresh = function(){
     }
     localStorage.ccptList = JSON.stringify(ccpt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        ccpAdd();
-    }
-});

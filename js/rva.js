@@ -43,8 +43,3 @@ rvaRefresh = function(){
     }
     localStorage.rvatList = JSON.stringify(rvat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        rvaAdd();
-    }
-});

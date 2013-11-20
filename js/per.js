@@ -43,8 +43,3 @@ perRefresh = function(){
     }
     localStorage.pertList = JSON.stringify(pert || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        perAdd();
-    }
-});

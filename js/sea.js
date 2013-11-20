@@ -43,8 +43,3 @@ seaRefresh = function(){
     }
     localStorage.seatList = JSON.stringify(seat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        seaAdd();
-    }
-});

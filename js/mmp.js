@@ -43,8 +43,3 @@ mmpRefresh = function(){
     }
     localStorage.mmptList = JSON.stringify(mmpt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        mmpAdd();
-    }
-});

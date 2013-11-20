@@ -43,8 +43,3 @@ daaRefresh = function(){
     }
     localStorage.daatList = JSON.stringify(daat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        daaAdd();
-    }
-});

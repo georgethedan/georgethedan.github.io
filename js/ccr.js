@@ -43,8 +43,3 @@ ccrRefresh = function(){
     }
     localStorage.ccrtList = JSON.stringify(ccrt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        ccrAdd();
-    }
-});

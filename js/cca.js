@@ -43,8 +43,3 @@ ccaRefresh = function(){
     }
     localStorage.ccatList = JSON.stringify(ccat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        ccaAdd();
-    }
-});

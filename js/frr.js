@@ -43,8 +43,3 @@ frrRefresh = function(){
     }
     localStorage.frrtList = JSON.stringify(frrt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        frrAdd();
-    }
-});

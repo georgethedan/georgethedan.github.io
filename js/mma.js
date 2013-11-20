@@ -43,8 +43,3 @@ mmaRefresh = function(){
     }
     localStorage.mmatList = JSON.stringify(mmat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        mmaAdd();
-    }
-});

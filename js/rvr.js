@@ -43,8 +43,3 @@ rvrRefresh = function(){
     }
     localStorage.rvrtList = JSON.stringify(rvrt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        rvrAdd();
-    }
-});

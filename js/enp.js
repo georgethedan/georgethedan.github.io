@@ -43,8 +43,3 @@ enpRefresh = function(){
     }
     localStorage.enptList = JSON.stringify(enpt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        enpAdd();
-    }
-});

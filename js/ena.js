@@ -43,8 +43,3 @@ enaRefresh = function(){
     }
     localStorage.enatList = JSON.stringify(enat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        enaAdd();
-    }
-});

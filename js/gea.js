@@ -43,8 +43,3 @@ geaRefresh = function(){
     }
     localStorage.geatList = JSON.stringify(geat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        geaAdd();
-    }
-});

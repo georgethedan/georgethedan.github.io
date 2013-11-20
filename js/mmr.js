@@ -43,8 +43,3 @@ mmrRefresh = function(){
     }
     localStorage.mmrtList = JSON.stringify(mmrt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        mmrAdd();
-    }
-});

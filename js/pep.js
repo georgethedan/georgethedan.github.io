@@ -43,8 +43,3 @@ pepRefresh = function(){
     }
     localStorage.peptList = JSON.stringify(pept || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        pepAdd();
-    }
-});

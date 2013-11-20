@@ -43,8 +43,3 @@ frpRefresh = function(){
     }
     localStorage.frptList = JSON.stringify(frpt || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        frpAdd();
-    }
-});

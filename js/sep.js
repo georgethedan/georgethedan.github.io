@@ -43,8 +43,3 @@ sepRefresh = function(){
     }
     localStorage.septList = JSON.stringify(sept || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        sepAdd();
-    }
-});

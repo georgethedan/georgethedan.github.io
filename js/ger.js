@@ -43,8 +43,3 @@ gerRefresh = function(){
     }
     localStorage.gertList = JSON.stringify(gert || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        gerAdd();
-    }
-});

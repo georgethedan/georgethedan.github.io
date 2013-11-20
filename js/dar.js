@@ -43,8 +43,3 @@ darRefresh = function(){
     }
     localStorage.dartList = JSON.stringify(dart || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        darAdd();
-    }
-});

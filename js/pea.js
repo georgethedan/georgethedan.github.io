@@ -43,8 +43,3 @@ peaRefresh = function(){
     }
     localStorage.peatList = JSON.stringify(peat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        peaAdd();
-    }
-});

@@ -43,8 +43,3 @@ gepRefresh = function(){
     }
     localStorage.geptList = JSON.stringify(gept || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        gepAdd();
-    }
-});

@@ -43,8 +43,3 @@ fraRefresh = function(){
     }
     localStorage.fratList = JSON.stringify(frat || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        fraAdd();
-    }
-});

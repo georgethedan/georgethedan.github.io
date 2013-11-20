@@ -43,8 +43,3 @@ serRefresh = function(){
     }
     localStorage.sertList = JSON.stringify(sert || []);
 }
-$(document).keypress(function(e){
-    if (e.which == 13){
-        serAdd();
-    }
-});
