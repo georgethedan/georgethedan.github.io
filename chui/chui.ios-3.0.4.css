@@ -73,7 +73,7 @@ h6, caption, figcaption, small, .type-xx-small {
    ============================== */
 article {
    position: absolute;
-   top: 55px; right: 0;
+   top: 45px; right: 0;
    bottom: 0; left: 0;
    -webkit-transition: all .15s ease-out;
    transition: all .15s ease-out;
@@ -383,7 +383,6 @@ nav > h1 + a.button {
    color: #7f7f7f;
    font-family: HelveticaNeue, Helvetica, sans-serif;
    -webkit-font-smoothing: antialiased;
-   font-size: 14px
 }
 .list ~ p {
    margin: 0 15px;
