@@ -79,20 +79,9 @@ body {
 		<script src="/js/ser.js"></script>
         <script>
 				$(function() {
-                        var segmentedOptions = {
-                                id: 'mySegmented',
-                                labels : ['Week A','Week B'],
-                                selected: 0
-                        };
-                        var segmentedResponse = function(e) {
-                                e.stopPropagation();
-                                $('#output').find('h3 > span').html(($(this).index() + 1));
-                        };
-                        var newSegmented = $.UICreateSegmented(segmentedOptions);
-                        $('#segmentedPanel').append(newSegmented);
-                        $('.segmented').UISegmented({callback:segmentedResponse});
-                        $('.segmented').UIPanelToggle('#toggle-panels',function(){$.noop;});
-                        var selectedPanel = $('.segmented').find('.selected').index();
+                        $(function() {
+							$('.segmented').UIPanelToggle('#toggle-panels',function(){$.noop;});
+						});
 						$('#tosub').on('singletap', function() {
 							$.UIGoToArticle('#sub');
 						});
@@ -144,9 +133,14 @@ body {
         </nav>
         <article id="main" class="current">
                 <section>
-                        <div id='segmentedPanel' class='horizontal centered'></div>
-                        <div id="toggle-panels">
-                                <div>
+                        <div class='horizontal centered'>
+				<div class='segmented'>
+					<a class='button'>Week A</a>
+					<a class='button'>Week B</a>
+				</div>
+			</div>
+                                <div id="toggle-panels">
+<div>
 <table class="mystyle" width='100%' id='tosub'>
   <tr>
    <th>   </th>
